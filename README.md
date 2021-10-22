@@ -1,2 +1,3 @@
 # E-COMM APP
-## Single Page Application using React, Express, mongoDB
+## Single Page Application using React, Express, SQL
+
