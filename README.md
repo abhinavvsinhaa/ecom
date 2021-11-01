@@ -1,11 +1,14 @@
 # Shoes Mania Ecomm Application
 
-Stack:
+## Stack:
 1. React
 2. Express
 3. MySQL
 
-Contributers:
+## Contributers:
 1. Rhythm Shandlya
 2. Abhinav Sinha
 3. Raghav Vij
+
+## Starting the dev server
+ yarn dev
