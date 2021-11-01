@@ -5,12 +5,11 @@
   "repository": "https://github.com/abhinavvsinhaa/ecom",
   "author": "rhythmshandlya <armaanbgp@gmail.com>",
   "scripts": {
-    "dev": "concurrently \"cd backend && yarn dev\" \"cd frontend && yarn start\""
+    "dev": "concurrently \"cd backend && yarn dev\" \"cd frontend && yarn start\"",
+    "install:all": "yarn install && cd backend && yarn install && cd ../frontend && yarn install && cd .. && yarn dev"
   },
   "license": "MIT",
   "devDependencies": {
-    "concurrently": "^6.3.0",
-    "i": "^0.3.7",
-    "npm": "^8.1.2"
+    "concurrently": "^6.3.0"
   }
 }
