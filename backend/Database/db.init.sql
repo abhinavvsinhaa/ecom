@@ -1,7 +1,3 @@
---<0S>
-ALTER USER 'root' @'localhost' IDENTIFIED WITH mysql_native_password BY 'balleballe';
-flush privileges;
---<1I>
 CREATE DATABASE ecom;
 USE ecom;
 -- product id will be binary
