@@ -1,0 +1,16 @@
+{
+  "name": "ecomroot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/abhinavvsinhaa/ecom",
+  "author": "rhythmshandlya <armaanbgp@gmail.com>",
+  "scripts": {
+    "dev": "concurrently \"cd backend && yarn dev\" \"cd frontend && yarn start\""
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^6.3.0",
+    "i": "^0.3.7",
+    "npm": "^8.1.2"
+  }
+}

@@ -12,7 +12,7 @@ const db = mysql.createConnection({
   port: process.env.dbPORT,
   user: process.env.USER,
   password: process.env.PASSWORD,
-  database: 'shoe_mania'
+  database: 'ecom'
 });
 db.connect(function (err) {
   if (err) {

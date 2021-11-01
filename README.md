@@ -1,1 +1,1 @@
-# ShoesMania Ecommerce Application
+# ShoesMania E-Commerce Application
