@@ -51,6 +51,9 @@ MODIFY COLUMN short_desc varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_090
 -- Change rating column data type from int to float
 ALTER TABLE ecom.product
 MODIFY COLUMN rating FLOAT NULL;
+-- Changing size of id because uuid generates 16char unique id only
+ALTER TABLE ecom.product
+MODIFY COLUMN id VARBINARY(16) NOT NULL;
 -- Inserting into product table
 INSERT INTO ecom.product
 VALUES (
@@ -125,3 +128,5 @@ VALUES (
     4.3,
     '3, 4, 5, 6, 7.5, 8.5, 9'
   );
+SELECT BIN_TO_UUID(id) AS id
+FROM ecom.product;
