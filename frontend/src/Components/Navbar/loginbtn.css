@@ -1,22 +1,23 @@
-a {
-    width: 200px;
-    padding: 20px 30px;
+.login-btn {
+    width: 150px;
     position: relative;
     display: block;
     text-decoration: none;
     overflow: hidden;
+    border-radius: 3px;
 }
-a:hover .wave {
+.login-btn:hover .wave {
     top: -120px;
 }
-a span {
+.login-btn span {
     position: relative;
     z-index: 1;
     color: white;
     font-size: 15px;
-    letter-spacing: 8px;
+    letter-spacing: 10px;
+    padding-left: 10px;
 }
-a .wave {
+.login-btn .wave {
     width: 200px;
     height: 200px;
     background-color: #444857;
@@ -26,7 +27,7 @@ a .wave {
     top: -80px;
     transition: 0.4s;
 }
-a .wave::before, a .wave::after {
+.login-btn .wave::before, .login-btn .wave::after {
     width: 200%;
     height: 200%;
     content: '';
@@ -35,12 +36,12 @@ a .wave::before, a .wave::after {
     left: 50%;
     transform: translate(-50%, -75%);
 }
-a .wave::before {
+.login-btn .wave::before {
     border-radius: 45%;
     background-color: rgba(20, 20, 20, 1);
     animation: wave 5s linear infinite;
 }
-a .wave::after {
+.login-btn .wave::after {
     border-radius: 40%;
     background-color: rgba(20, 20, 20, 0.5);
     animation: wave 10s linear infinite;

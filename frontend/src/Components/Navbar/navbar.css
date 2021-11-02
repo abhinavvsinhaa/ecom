@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&family=Josefin+Sans:ital,wght@0,100;0,500;0,600;1,100;1,500&family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,300;1,400;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&family=Josefin+Sans:ital,wght@0,100;0,500;0,600;1,100;1,500&family=Oswald&family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,300;1,400;1,600&display=swap');
 nav {
     height: 13vh;
     background: #6fd3eb;
@@ -24,9 +24,9 @@ nav {
     width: fit-content;
   }
   .nav-brand{
-    font-family: 'Henny Penny', cursive;
+    font-family: 'Oswald', sans-serif;
     color: white;
-    font-size: 25px;
+    font-size: 2.4rem;
     padding: 3rem;    
   }
 

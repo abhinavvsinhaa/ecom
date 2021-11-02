@@ -24,7 +24,7 @@ db.connect(function (err) {
   console.log('Db connected. Connected as id ' + db.threadId);
 });
 
-app.listen(process.env.PORT, () => {
+const server = app.listen(process.env.PORT, () => {
   console.log(`Api running on ${process.env.PORT}`);
 });
 

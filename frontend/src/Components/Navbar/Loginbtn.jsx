@@ -3,8 +3,8 @@ import "./loginbtn.css";
 
 const LoginBtn = () => {
   return (
-    <a href="/login">
-      <span>HOVER ME</span>
+    <a class="login-btn" href="/login">
+      <span> LOGIN </span>
       <div class="wave"></div>
     </a>
   );
