@@ -1,11 +1,8 @@
 CREATE DATABASE ecom;
 USE ecom;
--- product id will be binary
--- we will use UUID() to generate unique IDs
--- convert the generated unique id to binary
--- storing id will look like this UUID_TO_BIN(UUID())
+-- product id will be auto incrementing
 CREATE TABLE product (
-  id BINARY(30) PRIMARY KEY NOT NULL,
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   name VARCHAR(50) NOT NULL,
   short_desc VARCHAR(500),
   brand VARCHAR(20) NOT NULL,
@@ -17,7 +14,6 @@ CREATE TABLE product (
   quantity INT NOT NULL,
   rating INT
 );
-DESC product;
 -- will use md5 encryption method for storing passwords
 -- md5 generates 32 char length passwords
 -- minlength password - 8
@@ -30,17 +26,15 @@ CREATE TABLE user (
   wishlist_id INT NOT NULL,
   role VARCHAR(10)
 );
-DESC user;
 -- constructed with method1
 -- i.e. there will be mutiple products linked with same cartid
 CREATE TABLE cart (
   sno INT PRIMARY KEY NOT NULL,
   cartid INT NOT NULL,
-  productid BINARY(30) NOT NULL,
+  productid INT NOT NULL,
   quantity INT NOT NULL,
   FOREIGN KEY(productid) REFERENCES product(id)
 );
-DESC cart;
 -- 2 Nov 21
 -- Added new column size to store available sizes
 ALTER TABLE ecom.product
@@ -51,13 +45,21 @@ MODIFY COLUMN short_desc varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_090
 -- Change rating column data type from int to float
 ALTER TABLE ecom.product
 MODIFY COLUMN rating FLOAT NULL;
--- Changing size of id because uuid generates 16char unique id only
-ALTER TABLE ecom.product
-MODIFY COLUMN id VARBINARY(16) NOT NULL;
 -- Inserting into product table
-INSERT INTO ecom.product
+INSERT INTO ecom.product (
+    name,
+    short_desc,
+    brand,
+    category,
+    image_link1,
+    image_link2,
+    image_link3,
+    price,
+    quantity,
+    rating,
+    size
+  )
 VALUES (
-    UUID_TO_BIN(UUID()),
     'Nike Wildhorse 7',
     'Take on those tough and extreme trail runs with the rugged build of the Nike Wildhorse 7.Confidently take on rocky terrain with high-abrasion rubber on the outsole that adds durable traction.The upper delivers durable ventilation with support where you need it.Foam midsole cushioning gives a neutral feel and provides responsiveness on every mile.',
     'Nike',
@@ -69,11 +71,8 @@ VALUES (
     20,
     4.5,
     '5, 8, 9, 10'
-  );
--- Inserting 4 more products
-INSERT INTO ecom.product
-VALUES (
-    UUID_TO_BIN(UUID()),
+  ),
+  (
     'Nike Air Zoom Terra Kiger 7',
     'Run the trail in a super-responsive running shoe.Fast and lightweight, it delivers a breathable and secure feel as you race over rocky paths.Updated traction lugs provide stability for your downhill miles.',
     'Nike',
@@ -87,7 +86,6 @@ VALUES (
     '7, 8.5, 9'
   ),
   (
-    UUID_TO_BIN(UUID()),
     'Jordan Series .02',
     'The Jordan Series .02 continues the story of how Mike became the greatest of all time. Wearable in any setting, the shoe has some stretch, to accommodate wider feet. It is constructed like a classic sneaker, with clean, high sidewalls that are wrapped for durability. The shoe symbolises the influence and inspiration of Mike for the generations of kids who look up to him—players and fans alike looking to find their wings.',
     'Nike',
@@ -101,7 +99,6 @@ VALUES (
     '5, 5.5, 6, 6.5'
   ),
   (
-    UUID_TO_BIN(UUID()),
     'KD14 EP',
     'Kevin Durant lurks on the wing, waiting for the right time to strike before slicing his way through defences.The KD14 EP is designed to help versatile, relentless players like KD feel fresh all game long. Multi-layer mesh and a midfoot strap help reduce the foot  movements inside the shoe. Full-length Zoom Air cushioning plus Cushlon foam give back energy for lasting performance.This EP version uses an extra-durable sole that is ideal for outdoor courts.',
     'Nike',
@@ -115,7 +112,6 @@ VALUES (
     '7, 7.5, 8, 8.5, 9, 10, 11, 12'
   ),
   (
-    UUID_TO_BIN(UUID()),
     'Nike Air Force 1 Low Cozi By You',
     'Position your feet for the chill in this cosy AF-1, featuring a warm, fuzzy collar liner that feels soft and extends a bit over the top edge for classic cold-weather appeal.Make this hoops-inspired legend your very own, customising details from the materials on the top to the sole underfoot.',
     'Nike',
@@ -128,5 +124,3 @@ VALUES (
     4.3,
     '3, 4, 5, 6, 7.5, 8.5, 9'
   );
-SELECT BIN_TO_UUID(id) AS id
-FROM ecom.product;
