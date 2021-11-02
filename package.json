@@ -1,9 +1,9 @@
 {
-  "name": "ecomroot",
+  "name": "ecom",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/abhinavvsinhaa/ecom",
-  "author": "rhythmshandlya <armaanbgp@gmail.com>",
+  "author": "",
   "scripts": {
     "dev": "concurrently \"cd backend && yarn dev\" \"cd frontend && yarn start\"",
     "install:all": "yarn install && cd backend && yarn install && cd ../frontend && yarn install && cd .. && yarn dev"
