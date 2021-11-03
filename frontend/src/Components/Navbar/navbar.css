@@ -4,7 +4,7 @@
   }
   .nav-cp{
     padding: 1%;
-    background: #6fd3eb;
+    background: #6f64ff;
     z-index: 5;
   }
   .nav-links {
@@ -51,7 +51,7 @@
       width: 0vw;
       height: 100vh;
       overflow: hidden;
-      background-color:#6fd3eb;
+      background-color:#6f64ff;
       z-index: 5;
       transition: 0.2s ease-in;
       display: flex;
