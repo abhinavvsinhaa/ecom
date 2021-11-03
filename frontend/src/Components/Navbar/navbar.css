@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Henny+Penny&family=Josefin+Sans:ital,wght@0,100;0,500;0,600;1,100;1,500&family=Oswald&family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,300;1,400;1,600&display=swap');
-nav {
-    height: 13vh;
-    background: #6fd3eb;
+  nav{
+   
   }
-  
+  .nav-cp{
+    padding: 1%;
+    background: #6fd3eb;
+    z-index: 5;
+  }
   .nav-links {
     display: flex;
     list-style: none;
     height: 100%;
     align-items: center;
-  }
-  
-  .nav-links li{
   }
   .to-left{
     margin-left: auto;
@@ -22,16 +22,110 @@ nav {
     font-size: 16px;
     padding: 10%;
     width: fit-content;
+    font-family: poppins;
   }
   .nav-brand{
     font-family: 'Oswald', sans-serif;
     color: white;
-    font-size: 2.4rem;
-    padding: 3rem;    
+    font-size: 2.6rem;
+    position: relative;
+      top:-5px;
   }
-
+  .nav-mb{
+    display: none;
+  }
   @media screen and (max-width: 768px) {
+    .nav-cp{
+      display: none;
+    }
+    .nav-mb{
+      display: flex;
+    }
+    .nav-brand{
+      color:#141414 ;
+      font-size: 2.3rem;
+      margin: 0 auto;
+    }
+    .nav-menu{
+      position: fixed;
+      width: 0vw;
+      height: 100vh;
+      overflow: hidden;
+      background-color:#6fd3eb;
+      z-index: 5;
+      transition: 0.2s ease-in;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .nav-menu .menu-link{
+      font-family: poppins;
+      text-decoration: none;
+      color: white;
+    }
+    .login-btn{
+     height: 35px;
+    }
+    .login-btn span {
+      position: relative;
+      z-index: 1;
+      color: white;
+      font-size: 15px;
+      letter-spacing: 10px;
+      position: relative;
+        top: 5px;
+        left: 20px;
+      font-family: poppins;
+    }
+    /*
+      Hamburger
+    */
+    .hamburger {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      padding: 0;
+      z-index: 6;
+    }
     .line {
+      fill: none;
+      stroke: #141414;
+      stroke-width: 3;
+      transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+        stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .line1 {
+      stroke-dasharray: 60 207;
+      stroke-width: 6;
+    }
+    .line2 {
+      stroke-dasharray: 60 60;
+      stroke-width: 6;
+    }
+    .line3 {
+      stroke-dasharray: 60 207;
+      stroke-width: 6;
+    }
+    .opened .line1 {
+      stroke-dasharray: 90 207;
+      stroke-dashoffset: -134;
+      stroke-width: 6;
+    }
+    .opened .line2 {
+      stroke-dasharray: 1 60;
+      stroke-dashoffset: -30;
+      stroke-width: 6;
+    }
+    .opened .line3 {
+      stroke-dasharray: 90 207;
+      stroke-dashoffset: -134;
+      stroke-width: 6;
+    }
+    
+
+  /*   .line {
       width: 30px;
       height: 3px;
       background: white;
@@ -40,7 +134,6 @@ nav {
     nav {
       position: relative;
     }
-  
     .hamburger {
       position: absolute;
       cursor: pointer;
@@ -77,5 +170,5 @@ nav {
     }
     li.fade {
       opacity: 1;
-    }
+    } */
   }
