@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&family=Josefin+Sans:ital,wght@0,100;0,500;0,600;1,100;1,500&family=Oswald&family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,300;1,400;1,600&display=swap');
+nav {
+    height: 13vh;
+    background: #6fd3eb;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    height: 100%;
+    align-items: center;
+  }
+  
+  .nav-links li{
+  }
+  .to-left{
+    margin-left: auto;
+  }
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10%;
+    width: fit-content;
+  }
+  .nav-brand{
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    font-size: 2.4rem;
+    padding: 3rem;    
+  }
+
+  @media screen and (max-width: 768px) {
+    .line {
+      width: 30px;
+      height: 3px;
+      background: white;
+      margin: 5px;
+    }
+    nav {
+      position: relative;
+    }
+  
+    .hamburger {
+      position: absolute;
+      cursor: pointer;
+      right: 5%;
+      top: 50%;
+      transform: translate(-5%, -50%);
+      z-index: 10;
+    }
+  
+    .nav-links {
+      position: fixed;
+      background: #6fd3eb;
+      height: 100vh;
+      width: 100%;
+      flex-direction: column;
+      clip-path: circle(100px at 90% -10%);
+      -webkit-clip-path: circle(100px at 90% -10%);
+      transition: all 0.4s ease-out;
+      pointer-events: none;
+    }
+    .nav-links.open {
+      clip-path: circle(1000px at 90% -10%);
+      -webkit-clip-path: circle(1000px at 90% -10%);
+      pointer-events: all;
+    }
+    .landing {
+      flex-direction: column;
+    }
+    .nav-links li {
+      opacity: 0;
+    }
+    .nav-links li a {
+      font-size: 25px;
+    }
+    li.fade {
+      opacity: 1;
+    }
+  }
