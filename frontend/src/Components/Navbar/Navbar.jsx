@@ -2,6 +2,7 @@ import React from "react";
 import Search from "./Search";
 import "./navbar.css";
 import LoginBtn from "./Loginbtn";
+import arrowLeft from './arrow-left.svg';
 
 const Navbar = () => {
   React.useEffect(() => {
@@ -42,6 +43,10 @@ const Navbar = () => {
             />
           </svg>
         </button>
+        <button className="arrow-left to-left" onClick={hamClick} aria-label="Main Menu">
+          <img className="arrow-left-img" src={arrowLeft}/>
+        </button>
+
         <span className="nav-brand">Shoe Mania</span>
         <div className="nav-menu">
           <a className="menu-link" href="/home">
