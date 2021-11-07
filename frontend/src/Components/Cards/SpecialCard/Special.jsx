@@ -44,10 +44,7 @@ const Special = () => {
               Featuring soft foam cushioning and lightweight, woven fabric in
               the upper, the Jordan Proto-Lyte is made for all-day, bouncy
               comfort. Lightweight Breathability: Lightweight woven fabric with
-              real or synthetic leather provides breathable support. Cushioned
-              Comfort: A full-length foam midsole delivers lightweight, plush
-              cushioning. Secure Traction: Exaggerated herringbone-pattern
-              outsole offers traction on a variety of surfaces.
+              real or synthetic leather provides breathable support.
             </p>
             <p className="product-colors">
               Available Colors:
