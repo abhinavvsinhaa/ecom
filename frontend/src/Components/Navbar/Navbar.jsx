@@ -17,6 +17,7 @@ const Navbar = () => {
       });
     });
   }, []);
+  
   const hamClick = () => {
     const ham = document.getElementById("ham");
     if (!ham.classList.contains("opened")) {

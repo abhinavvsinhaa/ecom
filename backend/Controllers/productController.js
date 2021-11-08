@@ -28,7 +28,34 @@ exports.getAllProducts = (req, res, next) => {
   });
 };
 
-exports.addProduct = (req, res, next) => {};
+exports.addProduct = (req, res, next) => {
+  let product = [];
+  Object.entries(req.body).map((record) => {
+    product.push(record[1]);
+  });
+
+  db.query(
+    `INSERT INTO ecom.product (
+      name,
+      short_desc,
+      brand,
+      category,
+      image_link1,
+      image_link2,
+      image_link3,
+      price,
+      quantity,
+      rating,
+      size
+    ) VALUES (?);`,
+    [product],
+    (err, db_res, fields) => {
+      if (err) throw err;
+      console.log(db_res);
+      res.json('Products added successfully');
+    }
+  );
+};
 exports.getProduct = (req, res, next) => {};
 exports.updateProduct = (req, res, next) => {};
 exports.deleteProduct = (req, res, next) => {};

@@ -1,38 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&family=Josefin+Sans:ital,wght@0,100;0,500;0,600;1,100;1,500&family=Oswald&family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,300;1,400;1,600&display=swap');
-  nav{
-   
+@import url("https://fonts.googleapis.com/css2?family=Henny+Penny&family=Josefin+Sans:ital,wght@0,100;0,500;0,600;1,100;1,500&family=Oswald&family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,300;1,400;1,600&display=swap");
+nav {
+}
+.nav-cp {
+  padding: 1%;
+  z-index: 5;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  height: 100%;
+  align-items: center;
+}
+.to-left {
+  margin-left: auto;
+}
+.nav-links li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 18px;
+  padding: 10%;
+  width: fit-content;
+  font-family: poppins;
+  color: black;
+}
+.nav-brand {
+  font-family: "Oswald", sans-serif;
+  font-size: 2.6rem;
+  position: relative;
+  top: -5px;
+}
+.nav-mb {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .nav-cp {
+    display: none;
   }
   .nav-cp{
     padding: 1%;
     background: #000000;
     z-index: 5;
   }
-  .nav-links {
+  .nav-brand {
+    color: #141414;
+    font-size: 2.3rem;
+    margin: 0 auto;
+  }
+  .nav-menu {
+    position: fixed;
+    width: 0vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #6f64ff;
+    z-index: 5;
+    transition: 0.2s ease-in;
     display: flex;
-    list-style: none;
-    height: 100%;
+    flex-direction: column;
     align-items: center;
+    justify-content: space-around;
   }
-  .to-left{
-    margin-left: auto;
-  }
-  .nav-links li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    padding: 10%;
-    width: fit-content;
+  .nav-menu .menu-link {
     font-family: poppins;
-  }
-  .nav-brand{
-    font-family: 'Oswald', sans-serif;
+    text-decoration: none;
     color: white;
-    font-size: 2.6rem;
-    position: relative;
-      top:-5px;
   }
-  .nav-mb{
-    display: none;
+  .login-btn {
+    height: 35px;
+  }
+  .login-btn span {
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-size: 15px;
+    letter-spacing: 10px;
+    position: relative;
+    top: 5px;
+    left: 20px;
+    font-family: poppins;
   }
   .arrow-left{
     display:none;
@@ -135,3 +179,4 @@
       background-color:inherit;
     }
   }
+}
