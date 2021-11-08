@@ -9,7 +9,8 @@ const Special = () => {
       $(this).addClass("active");
       $(".active").css("border-color", $(this).attr("data-color-sec"));
       $(".container-pre-sp").css(
-        "background",`${$(this).attr("data-color-primary")} !important`
+        "background",
+        `${$(this).attr("data-color-primary")} !important`
       );
       $(".content h2").css("color", $(this).attr("data-color-sec"));
       $(".content h3").css("color", $(this).attr("data-color-sec"));
@@ -26,7 +27,7 @@ const Special = () => {
   }, []);
   return (
     <div className="container-pre-sp">
-    <p className="catalog-title">Only On Shoe Mania</p>
+      <p className="catalog-title">Shoe Mania Exclusive</p>
       <div className="container-sp">
         <div className="imgBx">
           <img
