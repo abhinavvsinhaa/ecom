@@ -56,6 +56,41 @@ exports.addProduct = (req, res, next) => {
     }
   );
 };
-exports.getProduct = (req, res, next) => {};
-exports.updateProduct = (req, res, next) => {};
-exports.deleteProduct = (req, res, next) => {};
+
+exports.getProduct = (req, res, next) => {
+  let productId = req.params.id;
+  db.query(
+    'SELECT * FROM ecom.product WHERE id = ?',
+    [productId],
+    (err, db_res, fields) => {
+      if (err) throw err;
+      res.json(db_res[0]);
+    }
+  );
+};
+
+exports.updateProduct = (req, res, next) => {
+  let productId = req.params.id;
+  let update = req.body;
+  db.query(
+    'UPDATE ecom.product SET ? WHERE id = ?',
+    [update, productId],
+    (err, db_res, fields) => {
+      if (err) throw err;
+      console.log(db_res);
+      res.json(`Product ${productId} updated successfully!`);
+    }
+  );
+};
+
+exports.deleteProduct = (req, res, next) => {
+  let productId = req.params.id;
+  db.query(
+    'DELETE FROM ecom.product WHERE id = ?',
+    [productId],
+    (err, db_res, fields) => {
+      if (err) throw err;
+      res.json(`Product ${productId} deleted!`);
+    }
+  );
+};
