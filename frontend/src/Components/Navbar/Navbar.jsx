@@ -50,7 +50,7 @@ const Navbar = () => {
           onClick={hamClick}
           aria-label="Main Menu"
         >
-          <img className="arrow-left-img" src={arrowLeft} />
+          <img className="arrow-left-img" src={arrowLeft} alt=""/>
         </button>
         <div className="nav-menu">
           <a className="menu-link" href="/home">

@@ -51,11 +51,54 @@ exports.addProduct = (req, res, next) => {
     [product],
     (err, db_res, fields) => {
       if (err) throw err;
-      console.log(db_res);
-      res.json('Products added successfully');
+      res.json(`Product added successfully with id: ${db_res.insertId}`);
     }
   );
 };
-exports.getProduct = (req, res, next) => {};
-exports.updateProduct = (req, res, next) => {};
-exports.deleteProduct = (req, res, next) => {};
+
+exports.getProduct = (req, res, next) => {
+  let productId = req.params.id;
+  db.query(
+    'SELECT * FROM ecom.product WHERE id = ?',
+    [productId],
+    (err, db_res, fields) => {
+      if (err) throw err;
+
+      if (db_res.length === 0)
+        res.json(`Product with id ${productId} not found.`);
+
+      res.json(db_res[0]);
+    }
+  );
+};
+
+exports.updateProduct = (req, res, next) => {
+  let productId = req.params.id;
+  let update = req.body;
+  db.query(
+    'UPDATE ecom.product SET ? WHERE id = ?',
+    [update, productId],
+    (err, db_res, fields) => {
+      if (err) throw err;
+
+      res.json(
+        `Update request on product id ${productId}, message: ${db_res.message}`
+      );
+    }
+  );
+};
+
+exports.deleteProduct = (req, res, next) => {
+  let productId = req.params.id;
+  db.query(
+    'DELETE FROM ecom.product WHERE id = ?',
+    [productId],
+    (err, db_res, fields) => {
+      if (err) throw err;
+
+      res.json(
+        `Delete request on product id ${productId}, product affected: ${db_res.affectedRows}`
+      );
+    }
+  );
+};
