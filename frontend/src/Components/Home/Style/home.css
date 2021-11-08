@@ -2,5 +2,38 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.catalog-title{
+    font-size:2rem;
+    padding: 10px;
+    text-align: center;
+    font-family: poppins;
+}
+.catalog-container{
+    margin: 2.5rem 0;
+}
+
+.catalog-container img{
+    width: 220px;
+}
+.product-container-top{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+}
+@media screen and (max-width: 1000px) {
+    .hidden{
+        display: none;
+    }
+}
+@media screen and (max-width: 700px) {
+    .catalog-container img{
+        width: 150px;
+    }
 }

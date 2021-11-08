@@ -1,8 +1,26 @@
 .product-card{
-    width: 300px;
-    height: 500px;
-    padding: 20px;
+    width: 220px;
+    height: fit-content;
+    font-family: poppins;
+    cursor: pointer;
+    margin: 5px;
 }
 .card-image{
     width: 100%;
+}
+.card-title{
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+.card-description{
+    color: gray;
+}
+.card-prise{
+    font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+    .product-card{
+        width: 150px;
+    }
 }

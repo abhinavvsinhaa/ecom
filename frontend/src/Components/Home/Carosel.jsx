@@ -2,10 +2,11 @@ import React from "react";
 import "./Style/carousel.css";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
-import img_3 from "./images/shoe.jpg";
-import img_2 from "./images/show_f.jpg";
-import img_1 from "./images/60off.jpg";
-import img_4 from "./images/Fashos1.jpg";
+import img_1 from "./images/carosel_1.jpg";
+import img_2 from "./images/carosel_2.jpg";
+import img_3 from "./images/carosel_3.jpg";
+import img_4 from "./images/carosel_4.jpg";
+import img_5 from "./images/carosel_5.jpg";
 
 const Carousel = () => {
   return (
@@ -30,6 +31,9 @@ const Carousel = () => {
       </SplideSlide>
       <SplideSlide>
         <img src={img_4} className="carousel_img_1" alt="" />
+      </SplideSlide>
+      <SplideSlide>
+        <img src={img_5} className="carousel_img_1" alt="" />
       </SplideSlide>
     </Splide>
   );
