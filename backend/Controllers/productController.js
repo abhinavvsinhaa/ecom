@@ -51,8 +51,7 @@ exports.addProduct = (req, res, next) => {
     [product],
     (err, db_res, fields) => {
       if (err) throw err;
-      console.log(db_res);
-      res.json('Products added successfully');
+      res.json(`Product added successfully with id: ${db_res.insertId}`);
     }
   );
 };
@@ -64,6 +63,10 @@ exports.getProduct = (req, res, next) => {
     [productId],
     (err, db_res, fields) => {
       if (err) throw err;
+
+      if (db_res.length === 0)
+        res.json(`Product with id ${productId} not found.`);
+
       res.json(db_res[0]);
     }
   );
@@ -77,8 +80,10 @@ exports.updateProduct = (req, res, next) => {
     [update, productId],
     (err, db_res, fields) => {
       if (err) throw err;
-      console.log(db_res);
-      res.json(`Product ${productId} updated successfully!`);
+
+      res.json(
+        `Update request on product id ${productId}, message: ${db_res.message}`
+      );
     }
   );
 };
@@ -90,7 +95,10 @@ exports.deleteProduct = (req, res, next) => {
     [productId],
     (err, db_res, fields) => {
       if (err) throw err;
-      res.json(`Product ${productId} deleted!`);
+
+      res.json(
+        `Delete request on product id ${productId}, product affected: ${db_res.affectedRows}`
+      );
     }
   );
 };
