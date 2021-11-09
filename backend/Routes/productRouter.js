@@ -8,10 +8,14 @@ router
   .get(productController.getAllProducts)
   .post(productController.addProduct);
 
+// router to handle requests with productid given
 router
-  .route('/:id')
+  .route('/productid/:id')
   .get(productController.getProduct)
   .put(productController.updateProduct)
   .delete(productController.deleteProduct);
+
+// router to handle filter requests
+router.route('/filter').get(productController.getFilteredProducts);
 
 module.exports = router;

@@ -124,3 +124,7 @@ VALUES (
     4.3,
     '3, 4, 5, 6, 7.5, 8.5, 9'
   );
+-- 9 Nov
+-- Changing data type of rating column from float to decimal as float doesn't supports equality checking
+ALTER TABLE ecom.product
+MODIFY COLUMN rating DECIMAL(2, 1) NULL;

@@ -1,7 +1,8 @@
 const db = require('../db-initialize');
+const mysql = require('mysql');
 
 exports.getAllProducts = (req, res, next) => {
-  db.query('SELECT * FROM product;', (err, db_res, fields) => {
+  db.query('SELECT * FROM ecom.product', (err, db_res, fields) => {
     if (err) throw err;
 
     let products = [];
@@ -101,4 +102,32 @@ exports.deleteProduct = (req, res, next) => {
       );
     }
   );
+};
+
+exports.getFilteredProducts = (req, res, next) => {
+  let query = 'SELECT * FROM ecom.product WHERE';
+  let flag = 0;
+  if (req.query) {
+    if (req.query.size) {
+      query += ' size = ' + mysql.escape(parseFloat(req.query.size));
+      flag = 1;
+    }
+    if (req.query.rating) {
+      if (flag !== 0) query += ' AND';
+      query += ' rating>=' + mysql.escape(parseFloat(req.query.rating));
+      flag = 1;
+    }
+    if (req.query.minprice) {
+      if (flag !== 0) query += ' AND';
+      query += ' price>=' + mysql.escape(parseInt(req.query.minprice));
+      flag = 1;
+    }
+    if (req.query.maxprice)
+      query += ' AND price<=' + mysql.escape(parseInt(req.query.maxprice));
+  }
+
+  db.query(query, (err, db_res, fields) => {
+    if (err) throw err;
+    res.json(db_res);
+  });
 };
