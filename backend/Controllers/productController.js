@@ -109,7 +109,7 @@ exports.getFilteredProducts = (req, res, next) => {
   let flag = 0;
   if (req.query) {
     if (req.query.size) {
-      query += " CAST(`size` as CHAR) LIKE '%" + req.query.size + "%'";
+      query += " size LIKE '%" + req.query.size + "%'";
       flag = 1;
     }
     if (req.query.rating) {
