@@ -27,7 +27,6 @@ const Special = () => {
   }, []);
   return (
     <div className="container-pre-sp">
-      <p className="catalog-title">Shoe Mania Exclusive</p>
       <div className="container-sp">
         <div className="imgBx">
           <img
@@ -38,8 +37,9 @@ const Special = () => {
         <div className="details">
           <div className="content">
             <h2>
-              Jordan Proto-Lyte <br />
-              <span>Running Collection</span>
+              Shoe Mania Special
+              <br />
+              <span>Air Jordans</span>
             </h2>
             <p>
               Featuring soft foam cushioning and lightweight, woven fabric in
@@ -68,8 +68,10 @@ const Special = () => {
                 data-pic="https://github.com/anuzbvbmaniac/Responsive-Product-Card---CSS-ONLY/blob/master/assets/img/jordan_proto_orange_black.png?raw=true"
               ></span>
             </p>
-            <h3>Rs. 12,800</h3>
-            <button>Buy Now</button>
+            <div className="d-flex">
+              <h3>Rs. 12,800</h3>
+              <button>Buy Now</button>
+            </div>
           </div>
         </div>
       </div>

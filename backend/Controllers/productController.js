@@ -124,8 +124,16 @@ exports.getFilteredProducts = (req, res, next) => {
     }
     if (req.query.maxprice)
       query += ' AND price<=' + mysql.escape(parseInt(req.query.maxprice));
+    if (req.query.limit) {
+      query += ' LIMIT ' + req.query.limit;
+    }
+    if (!req.query.limit) {
+      query += ' LIMIT ' + 5;
+    }
+    if (req.query.page) {
+      query += ' OFFSET ' + (req.query.limit || 5) * req.query.page;
+    }
   }
-
   db.query(query, (err, db_res, fields) => {
     if (err) console.log(err);
     res.json(db_res);
