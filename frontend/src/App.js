@@ -9,21 +9,23 @@ import {
 } from "react-router-dom";
 import Fallback from "./Components/Fallback/Fallback";
 import React from "react";
+import Category from "./Components/Category/Category";
 
 function App() {
   return (
     <React.Fragment>
-      <Navbar />
       <Router>
         <Switch>
-          <Route path="/">
+          <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/home">
+          <Route exact path="/home">
             <Home />
           </Route>
-          <Route path="/category"></Route>
-          <Route path="*">
+          <Route exact path="/category">
+            <Category />
+          </Route>
+          <Route exact path="*">
             <Fallback />
           </Route>
         </Switch>

@@ -4,7 +4,7 @@ import Carosel from "./Carosel";
 import Hover from "../Cards/HoverCard/Hover";
 import Special from "../Cards/SpecialCard/Special";
 import api from "./../../Util/api";
-
+import Navbar from "../Navbar/Navbar";
 import i1 from "./images/cat1.jpg";
 import i2 from "./images/cat2.jpg";
 import i3 from "./images/cat3.jpg";
@@ -39,6 +39,7 @@ const Home = () => {
 
   return (
     <div>
+      <Navbar />
       <Carosel />
       <div className="catalog-container">
         <p className="catalog-title">Select From Category</p>

@@ -6,17 +6,16 @@ exports.getAllProducts = (req, res, next) => {
     if (err) throw err;
 
     let products = [];
+    console.log(db_res);
     for (let i = 0; i < db_res.length; i++) {
       let product = {
         name: db_res[i].name,
         desc: db_res[i].short_desc,
         category: db_res[i].category,
         brand: db_res[i].brand,
-        image: [
-          db_res[i].image_link1,
-          db_res[i].image_link2,
-          db_res[i].image_link3
-        ],
+        image_link1: db_res.image_link1,
+        image_link2: db_res.image_link2,
+        image_link3: db_res.image_link3,
         price: db_res[i].price,
         rating: db_res[i].rating,
         size: db_res[i].size,
