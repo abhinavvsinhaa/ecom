@@ -156,7 +156,7 @@
     "size": "3,5,6,7,8"
   },
   {
-    "name": "MENS REEBOK CLASSICS CASUAL ROYAL COMPLETE 2 PX SHOES",
+    "name": "MENS REEBOK PX SHOES",
     "desc": "Classic. Sophisticated. Eternal. This mens footwear will satisfy all your retro style needs. Designed with a strong vulcanized sole, this pair will keep your feet fresh and fashionable. In addition, its mesh upper and synthetic fabric combines modernity with flexibility.",
     "brand": "Reebok",
     "category": "Casual",
@@ -169,7 +169,7 @@
     "size": "6,7,8,9,11"
   },
   {
-    "name": "MENS REEBOK SWIM FULGERE SLIDES",
+    "name": "MENS REEBOK SWIM SLIDES",
     "desc": "These mens slides offer an easygoing look for the beach or the swimming pool. The soft moulded EVA upper provides comfort and support. Made of water-friendly material, they are built for easy on and off.",
     "brand": "Reebok",
     "category": "Flip-flops",
@@ -233,6 +233,7 @@
     "rating": 2.8,
     "size": "5,6,7,8,9,11"
   },
+  
   {
     "name": "Red Tape Men's Black Derby Shoes",
     "desc": "The smooth upper of these black Red Tape Derby Shoes exude a formal look made for sporting at your workplace. The derbies come with a lace-up design keeping modernity in mind. To offer walking comfort for long hours they are constructed with TPR (thermoplastic rubber) sole and Leather upper for breathability and a chic look.",
@@ -298,5 +299,7 @@
     "rating": 4.2,
     "size": "4,6,7,8,11"
   }
+
   
 ]
+
