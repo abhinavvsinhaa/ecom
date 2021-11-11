@@ -23,7 +23,7 @@ const Home = () => {
       try {
         let res = await api.get("/products/filter?rating=4&limit=4", options);
         let res_2 = await api.get(
-          "/products/filter?rating=4&limit=10",
+          "/products/filter?rating=4&limit=4&page=2",
           options
         );
         setTopRated(res.data);
