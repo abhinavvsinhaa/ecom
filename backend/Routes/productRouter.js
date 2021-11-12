@@ -10,7 +10,7 @@ router
 
 // router to handle requests with productid given
 router
-  .route('/productid/:id')
+  .route('/productId/:id')
   .get(productController.getProduct)
   .put(productController.updateProduct)
   .delete(productController.deleteProduct);

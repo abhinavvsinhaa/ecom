@@ -127,7 +127,7 @@
     "price": 15990,
     "quantity": 10,
     "rating": 4.4,
-    "size": "9,,10,11,13"
+    "size": "9,10,11,13"
   },
   {
     "name": "Nike Court Vision Low",
@@ -156,7 +156,7 @@
     "size": "3,5,6,7,8"
   },
   {
-    "name": "MENS REEBOK CLASSICS CASUAL ROYAL COMPLETE 2 PX SHOES",
+    "name": "MENS REEBOK PX SHOES",
     "desc": "Classic. Sophisticated. Eternal. This mens footwear will satisfy all your retro style needs. Designed with a strong vulcanized sole, this pair will keep your feet fresh and fashionable. In addition, its mesh upper and synthetic fabric combines modernity with flexibility.",
     "brand": "Reebok",
     "category": "Casual",
@@ -169,7 +169,7 @@
     "size": "6,7,8,9,11"
   },
   {
-    "name": "MENS REEBOK SWIM FULGERE SLIDES",
+    "name": "MENS REEBOK SWIM SLIDES",
     "desc": "These mens slides offer an easygoing look for the beach or the swimming pool. The soft moulded EVA upper provides comfort and support. Made of water-friendly material, they are built for easy on and off.",
     "brand": "Reebok",
     "category": "Flip-flops",
@@ -232,5 +232,74 @@
     "quantity": 18,
     "rating": 2.8,
     "size": "5,6,7,8,9,11"
+  },
+  
+  {
+    "name": "Red Tape Men's Black Derby Shoes",
+    "desc": "The smooth upper of these black Red Tape Derby Shoes exude a formal look made for sporting at your workplace. The derbies come with a lace-up design keeping modernity in mind. To offer walking comfort for long hours they are constructed with TPR (thermoplastic rubber) sole and Leather upper for breathability and a chic look.",
+    "brand": "Redtape",
+    "category": "Formals",
+    "image1": "https://redtape.com/image/cache/catalog/RTE3401/8-800x800.jpg",
+    "image2": "https://redtape.com/image/cache/catalog/RTE3401/6-800x800.jpg",
+    "image3": "https://redtape.com/image/cache/catalog/RTE3401/2-800x800.jpg",
+    "price": 14999,
+    "quantity": 5,
+    "rating": 4,
+    "size": "8,9,10"
+  },
+  {
+    "name": "Red Tape Men's Tan Slip On Shoes",
+    "desc": "Eloquently express yourself with this pair of tan dress shoes brought to you by the house of Red Tape. Featuring a slip on style, it is convenient to wear, while the rubber sole gives it optimum traction and better grip. Made from fine quality leather, it ensures durability and easy maintenance.",
+    "brand": "Redtape",
+    "category": "Formals",
+    "image1": "https://redtape.com/image/cache/catalog/RTE2783/1-800x800.jpg",
+    "image2": "https://redtape.com/image/cache/catalog/RTE2783/2-800x800.jpg",
+    "image3": "https://redtape.com/image/cache/catalog/RTE2783/3-800x800.jpg",
+    "price": 8990,
+    "quantity": 5,
+    "rating": 4.4,
+    "size": "6,7,8,9,11"
+  },
+  {
+    "name": "Nike Victori One",
+    "desc": "You have played hard. You have sweated. You have given your all. Now there is just one last thing—you have to hit the showers. Dont worry, we have got your back with the Nike Victori One. Its one-piece foam design feels soft and comfortable while traction patterns on the sole help with wet surfaces. They dry quickly too, so no one will know you have just stepped out of the showers as you slide up to the party.",
+    "brand": "Redtape",
+    "category": "Formals",
+    "image1": "https://redtape.com/image/cache/catalog/RTE3041/1-800x800.jpg",
+    "image2": "https://redtape.com/image/cache/catalog/RTE3041/2-800x800.jpg",
+    "image3": "https://redtape.com/image/cache/catalog/RTE3041/3-800x800.jpg",
+    "price": 6990,
+    "quantity": 19,
+    "rating": 3.6,
+    "size": "7,9,11"
+  },
+  {
+    "name": "Red Tape Men Teak Oxford Shoes",
+    "desc": "Crafted with precision, this sophisticated formal pair of teak oxford shoes from Red Tape will definitely top in your favourites list. Rich in look, this classic lace up shoes has been given a durable sole finish along with a premium quality leather upper mat. Your confidence will get reflected through these pair, so make sure to pair it up with your formal ensemble either on the day of interview or a conference.",
+    "brand": "Redtape",
+    "category": "Formals",
+    "image1": "https://redtape.com/image/cache/catalog/RTS11642D/1-800x800.jpg",
+    "image2": "https://redtape.com/image/cache/catalog/RTS11642D/2-800x800.jpg",
+    "image3": "https://redtape.com/image/cache/catalog/RTS11642D/3-800x800.jpg",
+    "price": 9990,
+    "quantity": 17,
+    "rating": 4.7,
+    "size": "9,8,10,11,13"
+  },
+  {
+    "name": "Red Tape Men Teak Monk Shoes",
+    "desc": "Polished in rich brown with a lusturous body adds to the elegance and style. Constructed in premium leather and detailed with a belted strap gives definition to the form and shape. With simplicity redefining luxury, this buckled shoe is a difficult miss.",
+    "brand": "Redtape",
+    "category": "Formals",
+    "image1": "https://redtape.com/image/cache/catalog/RTE3013/1-800x800.jpg",
+    "image2": "https://redtape.com/image/cache/catalog/RTE3013/2-800x800.jpg",
+    "image3": "https://redtape.com/image/cache/catalog/RTE3013/4-800x800.jpg",
+    "price": 11955,
+    "quantity": 9,
+    "rating": 4.2,
+    "size": "4,6,7,8,11"
   }
+
+  
 ]
+

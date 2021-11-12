@@ -19,7 +19,7 @@ const Navbar = () => {
       });
     });
   }, []);
-  
+
   const hamClick = () => {
     const ham = document.getElementById("ham");
     if (!ham.classList.contains("opened")) {
@@ -56,8 +56,13 @@ const Navbar = () => {
           onClick={hamClick}
           aria-label="Main Menu"
         >
+<<<<<<< HEAD
           <img className="arrow-left-img" src={arrowLeft} alt=""/>
         </button> */}
+=======
+          <img className="arrow-left-img" src={arrowLeft} alt="" />
+        </button>
+>>>>>>> af52b68f8cbf00e1633f781bf57a8c4bf16fe0be
         <div className="nav-menu">
             <img className="arrow-left-img" src={arrowLeft} alt="" onClick={hamClick} aria-label="Main Menu"/>
           <a className="menu-link" href="/home">
@@ -91,6 +96,7 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
+      <div className="extra-spacing"></div>
     </nav>
   );
 };

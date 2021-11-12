@@ -6,17 +6,16 @@ exports.getAllProducts = (req, res, next) => {
     if (err) throw err;
 
     let products = [];
+    console.log(db_res);
     for (let i = 0; i < db_res.length; i++) {
       let product = {
         name: db_res[i].name,
         desc: db_res[i].short_desc,
         category: db_res[i].category,
         brand: db_res[i].brand,
-        image: [
-          db_res[i].image_link1,
-          db_res[i].image_link2,
-          db_res[i].image_link3
-        ],
+        image_link1: db_res.image_link1,
+        image_link2: db_res.image_link2,
+        image_link3: db_res.image_link3,
         price: db_res[i].price,
         rating: db_res[i].rating,
         size: db_res[i].size,
@@ -124,8 +123,16 @@ exports.getFilteredProducts = (req, res, next) => {
     }
     if (req.query.maxprice)
       query += ' AND price<=' + mysql.escape(parseInt(req.query.maxprice));
+    if (req.query.limit) {
+      query += ' LIMIT ' + req.query.limit;
+    }
+    if (!req.query.limit) {
+      query += ' LIMIT ' + 5;
+    }
+    if (req.query.page) {
+      query += ' OFFSET ' + (req.query.limit || 5) * req.query.page;
+    }
   }
-
   db.query(query, (err, db_res, fields) => {
     if (err) console.log(err);
     res.json(db_res);
