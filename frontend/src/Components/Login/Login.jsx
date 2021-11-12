@@ -1,10 +1,12 @@
 import React from 'react';
 import './Login.css'
 import Logo from '../../Assets/logo.jpeg';
+import Navbar from '../Navbar/Navbar';
 
 const Login = () => {
     return(
     <div className="container-fluid login">
+        <Navbar/>
         <div className="row justify-content-center">
             <div className="col-xl-8 col-lg-8 col-md-8 col-sm-10 col-12 form-container">
                 <div className="login-form">

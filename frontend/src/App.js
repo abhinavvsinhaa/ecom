@@ -1,15 +1,9 @@
-import Navbar from "./Components/Navbar/Navbar";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Fallback from "./Components/Fallback/Fallback";
 import React from "react";
 import Category from "./Components/Category/Category";
 import Home from "./Components/Home/Home";
+import Login from "./Components/Login/Login";
 
 function App() {
   return (
@@ -24,6 +18,9 @@ function App() {
           </Route>
           <Route exact path="/category">
             <Category />
+          </Route>
+          <Route path="/login">
+            <Login />
           </Route>
           <Route exact path="*">
             <Fallback />

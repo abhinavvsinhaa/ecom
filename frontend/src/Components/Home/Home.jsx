@@ -40,6 +40,7 @@ const Home = () => {
   return (
     <div>
       <Navbar />
+      <div className="extra-space"></div>
       <Carosel />
       <div className="catalog-container">
         <p className="catalog-title">Select From Category</p>
