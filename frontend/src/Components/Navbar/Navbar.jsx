@@ -2,7 +2,9 @@ import React from "react";
 import Search from "./Search";
 import "./navbar.css";
 import LoginBtn from "./Loginbtn";
-import arrowLeft from "./arrow-left.svg";
+import arrowLeft from "./arrow-left.png";
+import LogoDesktop from '../../Assets/logo1.1.jpeg';
+import LogoPhone from "../../Assets/logo1.2.jpeg";
 
 const Navbar = () => {
   React.useEffect(() => {
@@ -31,6 +33,10 @@ const Navbar = () => {
   return (
     <nav>
       <div className="nav-mb">
+        <div className="nav-align">
+        <span className="nav-brand">
+            <img src={LogoPhone} alt="ShoeMania Logo" height="50px"/>
+        </span>
         <button className="hamburger" onClick={hamClick} aria-label="Main Menu">
           <svg id="ham" width="80" height="50" viewBox="0 0 100 100">
             <path
@@ -44,15 +50,16 @@ const Navbar = () => {
             />
           </svg>
         </button>
-        <span className="nav-brand">Shoe Mania</span>
-        <button
+        </div>
+        {/* <button
           className="arrow-left to-left"
           onClick={hamClick}
           aria-label="Main Menu"
         >
           <img className="arrow-left-img" src={arrowLeft} alt=""/>
-        </button>
+        </button> */}
         <div className="nav-menu">
+            <img className="arrow-left-img" src={arrowLeft} alt="" onClick={hamClick} aria-label="Main Menu"/>
           <a className="menu-link" href="/home">
             Home
           </a>
@@ -69,7 +76,7 @@ const Navbar = () => {
       <div className="nav-cp">
         <ul className="nav-links">
           <li>
-            <span className="nav-brand">Shoe Mania</span>
+            <img src={LogoDesktop} alt="ShoeMania Logo" width="180px"/>
           </li>
           <li className="nav-navigation">
             <a href="/home">Home</a>

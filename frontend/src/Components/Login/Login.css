@@ -1,0 +1,84 @@
+.login {
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 580px;
+}
+
+.login-form {
+  height: 520px;
+  width: 350px;
+  background: rgb(254, 237, 244);
+  background: linear-gradient(
+    90deg,
+    rgba(254, 237, 244, 1) 0%,
+    rgba(252, 240, 228, 1) 100%
+  );
+}
+
+.login-shoemania-logo {
+  width: 100%;
+  border-top: 1px solid rgba(254, 237, 244, 1);
+  border-left: 1px solid rgba(254, 237, 244, 1);
+  border-right: 1px solid rgba(254, 237, 244, 1);
+}
+
+.form-content {
+  margin: 10px 20px;
+}
+
+.login-heading {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+input {
+  width: 100%;
+  border: 1px solid #d4d5d9;
+  padding: 5px 15px;
+  font-size: 15px;
+}
+
+input::placeholder {
+  opacity: 0.8;
+}
+
+input:focus {
+  border: 1px solid black;
+  outline: none;
+}
+
+.terms {
+  font-size: 14px;
+  color: #6b6c6e;
+}
+
+.terms-link {
+  text-decoration: none;
+  color: #dc1a22;
+  font-weight: 500;
+}
+
+input[type="submit"] {
+  background-color: #dc1a22;
+  border: none;
+  color: whitesmoke;
+  font-weight: 500;
+  border-radius: 0;
+}
+
+input[type="submit"]:hover {
+  background-color: #dc1a22;
+}
