@@ -6,7 +6,7 @@
   "author": "",
   "scripts": {
     "dev": "concurrently \"cd backend && yarn dev\" \"cd frontend && yarn start\"",
-    "install:all": "yarn install && cd backend && yarn install && cd ../frontend && yarn install && cd .. && yarn dev",
+    "install:all": "yarn install && cd backend && yarn install && cd ../frontend && yarn install",
     "backend": "cd backend && yarn dev",
     "frontend": "cd frontend && yarn start"
   },

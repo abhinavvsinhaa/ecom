@@ -128,3 +128,7 @@ VALUES (
 -- Changing data type of rating column from float to decimal as float doesn't supports equality checking
 ALTER TABLE ecom.product
 MODIFY COLUMN rating DECIMAL(2, 1) NULL;
+-- 17 Nov
+ALTER TABLE ecom.`user` MODIFY COLUMN cart_id varchar(200) NOT NULL;
+ALTER TABLE ecom.`user` MODIFY COLUMN wishlist_id varchar(200) NOT NULL;
+ALTER TABLE ecom.`user` MODIFY COLUMN password varchar(200) NOT NULL;
