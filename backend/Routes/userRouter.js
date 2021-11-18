@@ -3,7 +3,13 @@ const userController = require('./../Controllers/userController');
 
 const router = express.Router();
 
-router.route('/').get(userController.getAllUsers).post(userController.addUser);
+router.route('/').get(userController.getAllUsers)
+
+router.route('/signup')
+.post(userController.addUser);
+
+router.route('/login')
+.post(userController.findUser)
 
 router
   .route('/:id')

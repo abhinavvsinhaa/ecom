@@ -39,6 +39,34 @@ exports.addUser = (req, res, next) => {
         }
     })
 };
+
+exports.findUser = (req, res, next) => {
+    function checkIfUserExists(callback) {
+        db.query("SELECT * FROM ecom.user WHERE email=?", [req.body.email], (err, db_res, fields) => {
+            if (err) throw err;
+            if (db_res) {
+                callback(true)
+            } else {
+                callback(false)
+            }
+        })
+    }
+
+    checkIfUserExists(response => {
+        if (response === true) {
+            db.query("SELECT password FROM ecom.user WHERE email=?", [req.body.email], (err, db_res, fields) => {
+                if (err) throw err;
+                res.json({
+                    password: db_res[0].password
+                })
+                return;
+            }) 
+        } else {
+            res.json(`No user found with email address: ${req.body.email}`);
+        }
+    })
+}
+ 
 exports.getUser = (req, res, next) => {};
 exports.updateUser = (req, res, next) => {};
 exports.deleteUser = (req, res, next) => {};

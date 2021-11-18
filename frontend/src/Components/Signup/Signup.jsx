@@ -21,7 +21,7 @@ const SignUp = () => {
 
     const submitUser = (user) => {
         console.log(user)
-        fetch("http://localhost:8080/api/v1/user", {
+        fetch("http://localhost:8080/api/v1/user/signup", {
             method: "POST",
             headers: {
                 "Content-Type":"application/json"

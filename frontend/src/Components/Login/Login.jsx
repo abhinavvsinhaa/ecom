@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './Login.css'
 import Logo from '../../Assets/logo.jpeg';
 import Navbar from '../Navbar/Navbar';
+import bcrypt from 'bcryptjs'
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -9,7 +10,27 @@ const Login = () => {
 
     const getUser = (e) => {
         e.preventDefault();
-        console.log(email, password)
+        fetch("http://localhost:8080/api/v1/user/login", {
+            method: "POST",
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({email, password})
+        })
+        .then(res => res.json())
+        .then(response => {
+            if (response.password) {
+                bcrypt.compare(password, response.password, (err, res) => {
+                    if (err) console.log(err)
+                    if (res === true) {
+                        console.log("User logged in")
+                    } else {
+                        console.log("Incorrect email or password")
+                    }
+                })
+            }
+        })
+        .catch(console.log)
     }
 
     return(
