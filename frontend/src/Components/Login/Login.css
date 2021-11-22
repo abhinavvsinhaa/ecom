@@ -54,18 +54,18 @@
   font-weight: 500;
 }
 
-input {
+.login-input {
   width: 100%;
   border: 1px solid #d4d5d9;
   padding: 5px 15px;
   font-size: 15px;
 }
 
-input::placeholder {
+.login-input::placeholder {
   opacity: 0.8;
 }
 
-input:focus {
+.login-input:focus {
   border: 1px solid black;
   outline: none;
 }
@@ -81,7 +81,7 @@ input:focus {
   font-weight: 500;
 }
 
-input[type="submit"] {
+.login-input[type="submit"] {
   background-color: #dc1a22;
   border: none;
   color: whitesmoke;
@@ -89,7 +89,7 @@ input[type="submit"] {
   border-radius: 0;
 }
 
-input[type="submit"]:hover {
+.login-input[type="submit"]:hover {
   background-color: #dc1a22;
 }
 
@@ -97,7 +97,7 @@ input[type="submit"]:hover {
   height: 600px;
 }
 
-input[type="checkbox"] {
+.login-input[type="checkbox"] {
   width: auto;
 }
 
