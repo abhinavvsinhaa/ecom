@@ -1,16 +1,30 @@
+// Initializing database
 const db = require('../db-initialize');
+
+//For generating random string to be used while adding user
 const randomstring = require("randomstring");
 
+//Importing JWT for signing and verification
+const jwt = require("jsonwebtoken");
+//private key for JWT
+const privateKey = process.env.PRIVATE_KEY;
+
+//dot env configuration
+const dotenv = require("dotenv");
+dotenv.config({path: "../config.env"});
+
+
 exports.getAllUsers = (req, res, next) => {};
+
 exports.addUser = (req, res, next) => {  
     // check if the user previously exists or not 
     const findUser = (callback) => {
         db.query("SELECT email FROM ecom.user WHERE email=?", [req.body.email], (err, db_res, fields) => {
             if (err) throw err;
-            if (db_res) {
-                callback(true);
-            } else 
+            if (db_res.length === 0) {
                 callback(false);
+            } else 
+                callback(true);
         })
     }
 
@@ -53,6 +67,7 @@ exports.findUser = (req, res, next) => {
     }
 
     checkIfUserExists(response => {
+        //return password if the user already exists
         if (response === true) {
             db.query("SELECT password FROM ecom.user WHERE email=?", [req.body.email], (err, db_res, fields) => {
                 if (err) throw err;
@@ -66,6 +81,39 @@ exports.findUser = (req, res, next) => {
         }
     })
 }
+
+//on successfully logging in create a JWT and sign it
+exports.loginUser = (req, res, next) => {
+    const user = {
+        email: req.body.email,
+        iat: Math.floor(Date.now() / 1000)
+    }
+
+    jwt.sign({user}, privateKey, {algorithm: 'HS256', expiresIn: 2592000}, (err, token) => {
+        if (err) {
+            console.log(err);
+            res.end();
+        } else {
+            res.json({
+                message: "User logged in, and token created",
+                token: token
+            });
+        }
+    })
+}
+
+function verifyToken(req, res, next) {
+    const bearerHeader = req.headers['authorization'];
+    if (typeof bearerHeader !== 'undefined') {
+        const bearerToken = bearerHeader.split(" ")[1];
+        req.token = bearerToken;
+        next();
+    } else {
+        res.status(403);
+    }
+}
+
+
  
 exports.getUser = (req, res, next) => {};
 exports.updateUser = (req, res, next) => {};

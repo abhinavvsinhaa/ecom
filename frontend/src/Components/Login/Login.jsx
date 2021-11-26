@@ -4,6 +4,10 @@ import Logo from '../../Assets/logo.jpeg';
 import Navbar from '../Navbar/Navbar';
 import bcrypt from 'bcryptjs'
 
+//cookies
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
+
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -23,7 +27,31 @@ const Login = () => {
                 bcrypt.compare(password, response.password, (err, res) => {
                     if (err) console.log(err)
                     if (res === true) {
-                        console.log("User logged in")
+                        console.log("User logged in succesfully");
+                        
+                        //on logging, send request to get a signed JWT
+                        fetch("http://localhost:8080/api/v1/user/login/authorize", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                email: email
+                            })
+                        })
+                        .then(message => message.json())
+                        .then(authObject => {
+                            console.log(authObject.token);
+
+                            //store the token as cookie
+                            cookies.set('JWT', authObject.token, {
+                                path: '/',
+                                maxAge: 2592000,
+                                secure: false
+                            })
+                        })
+                        .catch(console.log);
+
                     } else {
                         console.log("Incorrect email or password")
                     }
