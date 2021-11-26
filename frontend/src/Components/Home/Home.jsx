@@ -27,7 +27,6 @@ const Home = () => {
           options
         );
         setTopRated(res.data);
-        console.log(res_2.data);
         setDealsOfTheDay(res_2.data);
         dataLoaded(true);
       } catch (err) {

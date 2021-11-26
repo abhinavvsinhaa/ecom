@@ -28,12 +28,12 @@
   font-family: poppins;
   color: black;
 }
-.nav-brand {
-  font-family: "Oswald", sans-serif;
-  font-size: 2.6rem;
-}
+
 .nav-mb {
   display: none;
+}
+.nav-logo{
+  width: 150px;
 }
 @media screen and (max-width: 768px) {
   .nav-cp {
@@ -43,11 +43,6 @@
     padding: 1%;
     background: #000000;
     z-index: 5;
-  }
-  .nav-brand {
-    color: #141414;
-    font-size: 2.3rem;
-    margin: 0 auto;
   }
   .nav-menu {
     position: fixed;

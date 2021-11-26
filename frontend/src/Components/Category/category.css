@@ -9,7 +9,15 @@
     overflow-x: hidden;
     padding: 20px;
   }
-  
+  .cat-flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .cat-flex label{
+    width: 70%;
+  }
+
   .sidenav a {
     padding: 6px 8px 6px 16px;
     text-decoration: none;
@@ -26,26 +34,30 @@
     display: flex;
     flex-wrap: wrap;
     margin-left: 255px;
+    padding-top: 100px;
   }
 
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
   }
-  .submit-filter{
-    width: 50%;
-  }
   .filter-label{
     margin: 10px 0;
   }
   .filter-div{
-    margin: 10px 0;
+    margin: 20px 0;
+  }
+  .filter-div p{
+    text-align: center;
   }
 
-.price-range{
+.cat-form{
  margin-bottom: 100px;
 }
 
+.cat-select{
+  width: 100%;
+}
 
 .sidenav::-webkit-scrollbar-track
 {
