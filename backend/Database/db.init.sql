@@ -132,3 +132,6 @@ MODIFY COLUMN rating DECIMAL(2, 1) NULL;
 ALTER TABLE ecom.`user` MODIFY COLUMN cart_id varchar(200) NOT NULL;
 ALTER TABLE ecom.`user` MODIFY COLUMN wishlist_id varchar(200) NOT NULL;
 ALTER TABLE ecom.`user` MODIFY COLUMN password varchar(200) NOT NULL;
+-- 27 Nov
+ALTER TABLE `ecom`.`cart` 
+CHANGE COLUMN `cartid` `cartid` VARCHAR(255) NOT NULL ;

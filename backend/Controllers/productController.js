@@ -6,7 +6,6 @@ exports.getAllProducts = (req, res, next) => {
     if (err) throw err;
 
     let products = [];
-    console.log(db_res);
     for (let i = 0; i < db_res.length; i++) {
       let product = {
         name: db_res[i].name,
