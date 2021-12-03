@@ -8,7 +8,6 @@ const SignUp = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [user, setUser] = useState({});
 
     const showPassword = () => {
         let showpass = document.getElementById("show-pass");
@@ -19,7 +18,13 @@ const SignUp = () => {
         }
     }
 
-    const submitUser = (user) => {
+    const submitUser = ({name, email, hash}) => {
+        const user = {
+            name: name,
+            email: email,
+            password: hash
+        }
+
         fetch("http://localhost:8080/api/v1/user/signup", {
             method: "POST",
             headers: {
@@ -39,12 +44,7 @@ const SignUp = () => {
             if (err) throw err;
             bcrypt.hash(password, salt, (err, hash) => {
                 if (err) throw err;
-                setUser({
-                    name: name,
-                    email: email,
-                    password: hash
-                })
-                submitUser(user);
+                submitUser({name, email, hash});
             })
         })
     }

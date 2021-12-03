@@ -17,6 +17,7 @@ dotenv.config({path: "../config.env"});
 exports.getAllUsers = (req, res, next) => {};
 
 exports.addUser = (req, res, next) => {  
+    console.log(req.body.email)
     // check if the user previously exists or not 
     const findUser = (callback) => {
         db.query("SELECT email FROM ecom.user WHERE email=?", [req.body.email], (err, db_res, fields) => {
