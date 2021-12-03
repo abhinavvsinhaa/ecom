@@ -13,6 +13,7 @@ const Price = () => {
   return (
     <form className="cat-form">
       <div className="filter-div">
+        <div className="filters-title">Filters</div>
         <p className="filter-label">Price range</p>
         <div className="cat-flex">
           <input type="radio" id="html" name="fav_language" value="HTML" />

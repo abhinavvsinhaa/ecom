@@ -4,7 +4,9 @@ import React from "react";
 import Category from "./Components/Category/Category";
 import Home from "./Components/Home/Home";
 import Login from "./Components/Login/Login";
+import CartPage from "./Components/Cart/Cart";
 import SignUp from "./Components/Signup/Signup";
+import Contact from "./Components/Contact/Contact";
 
 function App() {
   return (
@@ -24,7 +26,13 @@ function App() {
             <Login />
           </Route>
           <Route path="/signup">
-            <SignUp/>
+            <SignUp />
+          </Route>
+          <Route exact path="/cart">
+            <CartPage />
+          </Route>
+          <Route exact path="/contact">
+            <Contact />
           </Route>
           <Route exact path="*">
             <Fallback />
