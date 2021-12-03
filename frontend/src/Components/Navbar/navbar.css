@@ -2,6 +2,7 @@
 .nav-cp {
   z-index: 5;
   position: fixed;
+    top: 0;
   background-color: white;
   width: 100%;
   padding: 10px;
@@ -62,27 +63,24 @@
     text-decoration: none;
     color: white;
   }
-  .login-btn {
-    height: 35px;
-  }
-  .login-btn span {
-    position: relative;
-    z-index: 1;
-    color: white;
-    font-size: 15px;
-    letter-spacing: 10px;
-    position: relative;
-    top: 5px;
-    left: 20px;
-    font-family: poppins;
-  }
   .arrow-left {
     display: none;
   }
   .arrow-left-img{
-    font-size: large;
+    width: 40px !important;
+    padding-right: 20px;
   }
   @media screen and (max-width: 768px) {
+
+    .login-btn{
+      padding: 7px;
+    }
+    .login-btn span{
+      position: relative;
+      left: 15px;
+      font-size: 23px;
+    }
+
     .nav-cp {
       display: none;
     }
@@ -112,26 +110,13 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-around;
+      font-size: 1.5rem;
     }
     .nav-menu .menu-link {
       font-family: poppins;
       text-decoration: none;
-      color: white;
+      color: #141414;
       text-transform: uppercase;
-    }
-    .login-btn {
-      height: 35px;
-    }
-    .login-btn span {
-      position: relative;
-      z-index: 1;
-      color: white;
-      font-size: 15px;
-      letter-spacing: 10px;
-      position: relative;
-      top: 5px;
-      left: 20px;
-      font-family: poppins;
     }
     /*
       Hamburger
