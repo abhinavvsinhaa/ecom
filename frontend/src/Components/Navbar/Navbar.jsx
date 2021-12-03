@@ -57,7 +57,7 @@ const Navbar = () => {
         </div>
         <div className="nav-menu">
           <img
-            className="arrow-left-img"
+            className="arrow-left-img to-left"
             src={arrowLeft}
             alt=""
             onClick={hamClick}

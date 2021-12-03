@@ -50,19 +50,36 @@ const Product = () => {
                 <span>Color</span>
                 <div class="color-choose">
                   <div>
+                    <div>
+                      <input
+                        data-image="red"
+                        type="radio"
+                        id="red"
+                        name="color"
+                        value="red"
+                        checked
+                      />
+                      <label for="red">
+                        <img
+                          data-image="black"
+                          className="label-img"
+                          src={img_1}
+                          alt=""
+                        />
+                      </label>
+                    </div>
                     <input
-                      data-image="red"
+                      data-image="black"
                       type="radio"
-                      id="red"
+                      id="black"
                       name="color"
-                      value="red"
-                      checked
+                      value="black"
                     />
-                    <label for="red">
+                    <label for="black">
                       <img
-                        data-image="black"
+                        data-image="blue"
+                        src={img_3}
                         className="label-img"
-                        src={img_1}
                         alt=""
                       />
                     </label>
@@ -79,23 +96,6 @@ const Product = () => {
                       <img
                         data-image="blue"
                         src={img_2}
-                        className="label-img"
-                        alt=""
-                      />
-                    </label>
-                  </div>
-                  <div>
-                    <input
-                      data-image="black"
-                      type="radio"
-                      id="black"
-                      name="color"
-                      value="black"
-                    />
-                    <label for="black">
-                      <img
-                        data-image="blue"
-                        src={img_3}
                         className="label-img"
                         alt=""
                       />

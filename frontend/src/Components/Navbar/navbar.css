@@ -4,8 +4,7 @@
   position: fixed;
   background-color: white;
   width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px;
 }
 .extra-spacing {
   height: 50px;
@@ -18,6 +17,7 @@
 }
 .to-left {
   margin-left: auto;
+  padding-right: 10px;
 }
 .nav-links li a {
   text-decoration: none;
@@ -49,7 +49,7 @@
     width: 0vw;
     height: 100vh;
     overflow: hidden;
-    background-color: #6f64ff;
+    background-color: rgb(206, 206, 206);
     z-index: 5;
     transition: 0.2s ease-in;
     display: flex;
@@ -78,6 +78,9 @@
   }
   .arrow-left {
     display: none;
+  }
+  .arrow-left-img{
+    font-size: large;
   }
   @media screen and (max-width: 768px) {
     .nav-cp {
