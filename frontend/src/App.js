@@ -7,6 +7,7 @@ import Login from "./Components/Login/Login";
 import CartPage from "./Components/Cart/Cart";
 import SignUp from "./Components/Signup/Signup";
 import Contact from "./Components/Contact/Contact";
+import Product from "./Components/Product/Product";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route exact path="/category">
             <Category />
+          </Route>
+          <Route exact path="/category/:id">
+            <Product />
           </Route>
           <Route path="/login">
             <Login />
