@@ -5,16 +5,16 @@ import Footer from "./../Footer/Footer";
 import $ from "jquery";
 
 const Product = () => {
-  $(document).ready(function () {
+  React.useEffect(() => {
     $(".color-choose input").on("click", function () {
       var headphonesColor = $(this).attr("data-image");
-      $(".active").fadeOut(100).removeClass("active");
-      $(".left-column img[data-image = " + headphonesColor + "z]")
+      $(".active").fadeOut(300).removeClass("active");
+      $(".left-column img[data-image = " + headphonesColor + "]")
         .fadeIn(250)
         .addClass("active");
       $(this).addClass("active");
     });
-  });
+  }, []);
   const img_1 =
     "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/f94ed87f-963e-4bfb-b88d-4f476a0e79df/wildhorse-7-trail-running-shoes-XdK82N.png";
   const img_2 =
