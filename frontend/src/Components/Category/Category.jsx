@@ -16,25 +16,27 @@ const Price = () => {
     <form className="cat-form">
       <div className="filter-div">
         <div className="filters-title">Filters</div>
+        <hr />
         <p className="filter-label">Price range</p>
         <div className="cat-flex">
           <input type="radio" id="html" name="fav_language" value="HTML" />
-          <label for="html">₹0-₹2000</label>
+          <label for="html">Rs. 0 to Rs. 2000</label>
         </div>
         <div className="cat-flex">
           <input type="radio" id="html" name="fav_language" value="HTML" />
-          <label for="html">₹2000-₹5000</label>
+          <label for="html">Rs. 2000 to Rs. 5000</label>
         </div>
         <div className="cat-flex">
           <input type="radio" id="html" name="fav_language" value="HTML" />
-          <label for="html">₹5000-₹10000</label>
+          <label for="html">Rs. 5000 to Rs. 10000</label>
         </div>
         <div className="cat-flex">
           <input type="radio" id="html" name="fav_language" value="HTML" />
-          <label for="html">₹10000-MAX</label>
+          <label for="html">Rs. 10000 &gt;</label>
         </div>
       </div>
-      <div className="filter-div">
+      <hr />
+      {/* <div className="filter-div">
         <p className="filter-label">Sort By</p>
         <div>
           <select className="cat-select" name="sort-by" id="cars">
@@ -44,11 +46,12 @@ const Price = () => {
             <option value="">New First</option>
           </select>
         </div>
-      </div>
+      </div> */}
       <div className="cat-flex">
         <input type="checkbox" id=""></input>
         <label for="">Exclude Out Of Stock</label>
       </div>
+      <hr />
       <div className="filter-div">
         <p className="filter-label">Rating</p>
         <div className="cat-flex">
@@ -68,8 +71,9 @@ const Price = () => {
           <label for="html">Above 1</label>
         </div>
       </div>
+      <hr />
       <div className="filter-div">
-        <p className="filter-label">Select Brands</p>
+        <p className="filter-label">Brands</p>
         <div className="cat-flex">
           <input type="checkbox" id=""></input>
           <label for="">Nike</label>
@@ -83,7 +87,7 @@ const Price = () => {
           <label for="">Rebok</label>
         </div>
       </div>
-      <input type="submit" className="submit-filter" value="Commit Change" />
+      <input type="submit" className="submit-filter" value="APPLY FILTERS" />
     </form>
   );
 };
@@ -110,8 +114,9 @@ const Category = () => {
   }, []);
   
   return (
-    <div>
-      <Navbar />
+    <>
+    <Navbar />
+    <div className="category-head-div">
       <div class="sidenav">
         <Price />
       </div>
@@ -123,6 +128,7 @@ const Category = () => {
           })}
       </div>
     </div>
+    </>
   );
 };
 

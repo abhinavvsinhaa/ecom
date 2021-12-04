@@ -1,6 +1,7 @@
 import React from "react";
 import {Route} from "react-router-dom";
 import "./hover.css";
+import buyNow from "../../../Assets/buy.png"
 
 const Hover = ({ detail }) => {
   const link = [detail.image_link1, detail.image_link2, detail.image_link3];
@@ -14,7 +15,7 @@ const Hover = ({ detail }) => {
   React.useEffect(() => {}, []);
 
   return (
-    <div class={`product-card`}>
+    <div className = "product-card">
       <div className="upper-div">
         <Route render = {({history}) => (
           <img
@@ -33,32 +34,32 @@ const Hover = ({ detail }) => {
 
         <div className="on-hover">
           <span className="rating">
-            <span>
+            <span className="star-rating">
               {detail.rating}
+              &nbsp;
               <img
                 className="icon8-images"
                 src="https://img.icons8.com/ios-glyphs/50/000000/star--v1.png"
                 alt=""
               />
             </span>
-            <span>S M L XL</span>
+            <span>{detail.brand}</span>
           </span>
         </div>
       </div>
       <div className="card-prop">
         <div className="d-flex-new">
-          <p className="card-title">{detail.brand}</p>
           <p className="card-description">
             {detail.name.split(" ").slice(0, 2).join(" ")}
           </p>
-        </div>
-        <div className="d-flex-new">
-          <p className="card-prise">₹{detail.price}</p>
           <img
-            className="icon8-images"
-            src="https://img.icons8.com/material-outlined/24/000000/buy.png"
+            src={buyNow}
             alt="buy now"
+            width="20px"
           />
+        </div>
+        <div className="div-price-buy">
+          <p className="card-prise">₹{detail.price}</p>
         </div>
       </div>
     </div>
