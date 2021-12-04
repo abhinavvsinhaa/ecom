@@ -11,6 +11,7 @@ import i3 from "./images/cat3.jpg";
 import i4 from "./images/cat4.jpg";
 import i5 from "./images/cat5.jpg";
 import Footer from "../Footer/Footer";
+import LoadingBar from "react-top-loading-bar";
 
 const options = { withCredentials: true };
 
@@ -18,6 +19,8 @@ const Home = () => {
   const [topRated, setTopRated] = React.useState([]);
   const [dealsOfTheDay, setDealsOfTheDay] = React.useState([]);
   const [loadingAllData, dataLoaded] = React.useState(false);
+  const [progress, setProgress] = React.useState(0);
+
   React.useEffect(() => {
     async function fetchMyAPI() {
       try {
@@ -28,6 +31,7 @@ const Home = () => {
         );
         setTopRated(res.data);
         setDealsOfTheDay(res_2.data);
+        setProgress(100);
         dataLoaded(true);
       } catch (err) {
         console.log(err);
@@ -38,7 +42,14 @@ const Home = () => {
 
   return (
     <div>
+      <LoadingBar
+        color="green"
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+        height={3}
+      />
       <Navbar />
+
       <div className="extra-space"></div>
       <Carosel />
       <div className="catalog-container">
