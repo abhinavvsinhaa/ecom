@@ -5,6 +5,9 @@ import LoginBtn from "./Loginbtn";
 import arrowLeft from "./arrow-left.png";
 import LogoDesktop from "../../Assets/logo1.1.jpeg";
 import LogoPhone from "../../Assets/logo1.2.jpeg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 
 import Cookies from "universal-cookie";
@@ -52,6 +55,7 @@ const Navbar = () => {
     ham.classList.toggle("opened");
     ham.setAttribute("aria-expanded", ham.classList.contains("opened"));
   };
+
   return (
     <nav>
       <div className="nav-mb">
@@ -95,9 +99,14 @@ const Navbar = () => {
             Contact
           </a>
           {isLogin ? (
-            <a className="menu-link" href="/contact">
-              Account
-            </a>
+            <div>
+              <a className="menu-link" href="/account">
+                Account
+              </a>
+              <Link to="/cart" className="dom-link">
+                <FontAwesomeIcon icon={faCartPlus} size="lg" />
+              </Link>
+            </div>
           ) : (
             <LoginBtn />
           )}
@@ -119,10 +128,19 @@ const Navbar = () => {
             <a href="/category">Category</a>
             <a href="/contact">Contact</a>
           </li>
-          {isLogin || (
+          {!isLogin ? (
             <li className="to-left">
               <LoginBtn />
             </li>
+          ) : (
+            <div className="to-left">
+              <a className="to-left account-link" href="/account">
+                Account
+              </a>
+              <Link to="/cart">
+                <FontAwesomeIcon icon={faCartPlus} size="lg" />
+              </Link>
+            </div>
           )}
 
           <li className="">

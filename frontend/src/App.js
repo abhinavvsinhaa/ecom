@@ -8,6 +8,7 @@ import CartPage from "./Components/Cart/Cart";
 import SignUp from "./Components/Signup/Signup";
 import Contact from "./Components/Contact/Contact";
 import Product from "./Components/Product/Product";
+import Account from "./Components/Account/Account";
 
 function App() {
   return (
@@ -37,6 +38,9 @@ function App() {
           </Route>
           <Route exact path="/contact">
             <Contact />
+          </Route>
+          <Route exact path="/account">
+            <Account />
           </Route>
           <Route exact path="*">
             <Fallback />
