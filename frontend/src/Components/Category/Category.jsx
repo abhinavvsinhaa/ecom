@@ -3,7 +3,9 @@ import Navbar from "../Navbar/Navbar";
 import Hover from "../Cards/HoverCard/Hover";
 import api from "./../../Util/api";
 import "./category.css";
+
 const options = { withCredentials: true };
+
 const Price = () => {
   React.useEffect(() => {
     document.querySelector(".cat-form").addEventListener("submit", (e) => {
@@ -89,6 +91,7 @@ const Price = () => {
 const Category = () => {
   const [product, setProduct] = React.useState([]);
   const [loadingAllData, dataLoaded] = React.useState(false);
+
   React.useEffect(() => {
     async function fetchMyAPI() {
       try {
@@ -105,6 +108,7 @@ const Category = () => {
     }
     fetchMyAPI();
   }, []);
+  
   return (
     <div>
       <Navbar />

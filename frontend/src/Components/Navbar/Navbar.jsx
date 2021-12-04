@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Search from "./Search";
 import "./navbar.css";
 import LoginBtn from "./Loginbtn";
@@ -6,11 +6,36 @@ import arrowLeft from "./arrow-left.png";
 import LogoDesktop from "../../Assets/logo1.1.jpeg";
 import LogoPhone from "../../Assets/logo1.2.jpeg";
 
+
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
+
 const Navbar = () => {
-  const [isLogin, setIsLogin] = React.useState(true);
+  const [isLogin, setIsLogin] = React.useState(false);
   React.useEffect(() => {
     const hamburger = document.querySelector(".hamburger");
     const navLinks = document.querySelector(".nav-links");
+
+    const token = cookies.getAll().JWT;
+
+    fetch("http://localhost:8080/api/v1/user/isloggedin", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        token
+      })
+    })
+    .then(res => res.json())
+    .then(result => {
+      if (result.status === true) {
+        setIsLogin(true);
+      } else {
+        setIsLogin(false);
+      }
+    })
+    .catch(console.log)
 
     hamburger.addEventListener("click", () => {
       navLinks.classList.toggle("open");
