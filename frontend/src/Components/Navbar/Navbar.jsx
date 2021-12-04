@@ -76,7 +76,11 @@ const Navbar = () => {
           {isLogin ? (
             <div>
               <a className="menu-link" href="/account">
-                Account
+                <img
+                  src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                  alt=""
+                  className="nav-dp"
+                />
               </a>
               <Link to="/cart" className="dom-link">
                 <FontAwesomeIcon icon={faCartPlus} size="lg" />
@@ -108,12 +112,16 @@ const Navbar = () => {
               <LoginBtn />
             </li>
           ) : (
-            <div className="to-left">
-              <a className="to-left account-link" href="/account">
-                Account
+            <div className="to-left r-flex">
+              <a className="account-link " href="/account">
+                <img
+                  src="https://bootdey.com/img/Content/avatar/avatar1.png"
+                  alt=""
+                  className="nav-dp"
+                />
               </a>
-              <Link to="/cart">
-                <FontAwesomeIcon icon={faCartPlus} size="lg" />
+              <Link className="dom-link" to="/cart">
+                <FontAwesomeIcon icon={faCartPlus} size="2x" />
               </Link>
             </div>
           )}

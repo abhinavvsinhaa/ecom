@@ -18,7 +18,6 @@
 }
 .to-left {
   margin-left: auto;
-  padding-right: 10px;
 }
 .nav-links li a,.account-link {
   text-decoration: none;
@@ -36,6 +35,19 @@
 .nav-logo{
   width: 150px;
 }
+.nav-dp{
+  width: 45px !important;
+  border-radius: 50%;
+  height: auto;
+}
+.r-flex{
+  display: flex;
+  align-items: center;
+}
+.dom-link{
+  color: black;
+}
+
 @media screen and (max-width: 768px) {
   .nav-cp {
     display: none;
@@ -70,10 +82,6 @@
     width: 40px !important;
     padding-right: 20px;
   }
-  .dom-link{
-    color: black;
-  }
-  
   @media screen and (max-width: 768px) {
 
     .login-btn{

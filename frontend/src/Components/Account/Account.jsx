@@ -1,57 +1,54 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar";
 import "./account.css";
+import OrderCard from "./OrderCard";
 
 const General = () => {
   return (
     <div class="tab-pane fade active show" id="account-general">
-      <div class="card-body media align-items-center">
+      <div class="card-body media align-items-center d-flex">
         <img
           src="https://bootdey.com/img/Content/avatar/avatar1.png"
           alt=""
           class="d-block ui-w-80"
         />
         <div class="media-body ml-4">
-          <label class="btn btn-outline-primary">
+          <label class="btn btn-outline-primary form-group">
             Upload new photo
             <input type="file" class="account-settings-fileinput" />
           </label>{" "}
-          &nbsp;
-          <button type="button" class="btn btn-default md-btn-flat">
-            Reset
-          </button>
-          <div class="text-light small mt-1">
+          <div class="text-light small mt-1 form-group">
             Allowed JPG, GIF or PNG. Max size of 800K
           </div>
         </div>
       </div>
-      <hr class="border-light m-0" />
 
       <div class="card-body">
         <div class="form-group">
-          <label class="form-label">Username</label>
-          <input type="text" class="form-control mb-1" value="nmaxwell" />
+          <label class="form-label">Full Name</label>
+          <input
+            type="text"
+            class="form-control"
+            defaultValue="Rhythm Shandlya"
+          />
         </div>
         <div class="form-group">
-          <label class="form-label">Name</label>
-          <input type="text" class="form-control" value="Nelle Maxwell" />
-        </div>
-        <div class="form-group">
-          <label class="form-label">E-mail</label>
+          <label class="form-label">Email Address</label>
           <input
             type="text"
             class="form-control mb-1"
-            value="nmaxwell@mail.com"
+            value="armaan@mail.com"
           />
           <div class="alert alert-warning mt-3">
             Your email is not confirmed. Please check your inbox.
             <br />
             <a href="#">Resend confirmation</a>
           </div>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Company</label>
-          <input type="text" class="form-control" value="Company Ltd." />
+          <div class="alert alert-warning mt-3">
+            Your email cannot be changed.
+            <br />
+            <a href="#">Request change?</a>
+          </div>
         </div>
       </div>
     </div>
@@ -80,124 +77,46 @@ const ChangePassword = () => {
   );
 };
 
-const Info = () => {
+const AddressInfo = () => {
   return (
     <div class="tab-pane fade active show" id="account-info">
       <div class="card-body pb-2">
         <div class="form-group">
-          <label class="form-label">Bio</label>
-          <textarea class="form-control" rows="5">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nunc
-            arcu, dignissim sit amet sollicitudin iaculis, vehicula id urna. Sed
-            luctus urna nunc. Donec fermentum, magna sit amet rutrum pretium,
-            turpis dolor molestie diam, ut lacinia diam risus eleifend sapien.
-            Curabitur ac nibh nulla. Maecenas nec augue placerat, viverra tellus
-            non, pulvinar risus.
-          </textarea>
+          <label class="form-label">Address Information</label>
+          <textarea class="form-control" rows="5"></textarea>
         </div>
         <div class="form-group">
-          <label class="form-label">Birthday</label>
-          <input type="text" class="form-control" value="May 3, 1995" />
+          <label class="form-label">Pincode</label>
+          <input type="text" class="form-control" defaultValue="" />
         </div>
         <div class="form-group">
-          <label class="form-label">Country</label>
-          <select class="custom-select">
-            <option>USA</option>
-            <option selected="">Canada</option>
-            <option>UK</option>
-            <option>Germany</option>
-            <option>France</option>
-          </select>
+          <label class="form-label">City</label>
+          <input type="text" class="form-control" defaultValue="" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">State</label>
+          <input type="text" class="form-control" defaultValue="" />
         </div>
       </div>
-      <hr class="border-light m-0" />
       <div class="card-body pb-2">
         <h6 class="mb-4">Contacts</h6>
         <div class="form-group">
           <label class="form-label">Phone</label>
-          <input type="text" class="form-control" value="+0 (123) 456 7891" />
+          <input type="text" class="form-control" defaultValue="+91 " />
         </div>
         <div class="form-group">
-          <label class="form-label">Website</label>
-          <input type="text" class="form-control" value="" />
+          <label class="form-label">Alternate Phone</label>
+          <input type="text" class="form-control" defaultValue="+91 " />
         </div>
       </div>
     </div>
   );
 };
 
-const ConnectSocial = () => {
+const MyOrders = () => {
   return (
     <div class="tab-pane fade active show" id="account-social-links">
-      <div class="card-body pb-2">
-        <div class="form-group">
-          <label class="form-label">Twitter</label>
-          <input
-            type="text"
-            class="form-control"
-            value="https://twitter.com/user"
-          />
-        </div>
-        <div class="form-group">
-          <label class="form-label">Facebook</label>
-          <input
-            type="text"
-            class="form-control"
-            value="https://www.facebook.com/user"
-          />
-        </div>
-        <div class="form-group">
-          <label class="form-label">Google+</label>
-          <input type="text" class="form-control" value="" />
-        </div>
-        <div class="form-group">
-          <label class="form-label">LinkedIn</label>
-          <input type="text" class="form-control" value="" />
-        </div>
-        <div class="form-group">
-          <label class="form-label">Instagram</label>
-          <input
-            type="text"
-            class="form-control"
-            value="https://www.instagram.com/user"
-          />
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const Connections = () => {
-  return (
-    <div class="tab-pane fade active show" id="account-connections">
-      <div class="card-body">
-        <button type="button" class="btn btn-twitter">
-          Connect to <strong>Twitter</strong>
-        </button>
-      </div>
-      <hr class="border-light m-0" />
-      <div class="card-body">
-        <h5 class="mb-2">
-          <a href="javascript:void(0)" class="float-right text-muted text-tiny">
-            <i class="ion ion-md-close"></i> Remove
-          </a>
-          <i class="ion ion-logo-google text-google"></i>
-          You are connected to Google:
-        </h5>
-        nmaxwell@mail.com
-      </div>
-      <hr class="border-light m-0" />
-      <div class="card-body">
-        <button type="button" class="btn btn-facebook">
-          Connect to <strong>Facebook</strong>
-        </button>
-      </div>
-      <hr class="border-light m-0" />
-      <div class="card-body">
-        <button type="button" class="btn btn-instagram">
-          Connect to <strong>Instagram</strong>
-        </button>
-      </div>
+      <OrderCard />
     </div>
   );
 };
@@ -300,25 +219,19 @@ const Options = ({ handleState }) => {
           class="list-group-item list-group-item-action"
           onClick={handleClick}
         >
+          My Orders
+        </button>
+        <button
+          class="list-group-item list-group-item-action"
+          onClick={handleClick}
+        >
           Change Password
         </button>
         <button
           class="list-group-item list-group-item-action"
           onClick={handleClick}
         >
-          Info
-        </button>
-        <button
-          class="list-group-item list-group-item-action"
-          onClick={handleClick}
-        >
-          Social Links
-        </button>
-        <button
-          class="list-group-item list-group-item-action"
-          onClick={handleClick}
-        >
-          Connections
+          Delivery Address
         </button>
         <button
           class="list-group-item list-group-item-action"
@@ -338,7 +251,7 @@ const Account = () => {
       <Navbar />
       <div className="accounts-wrapper">
         <div class="container light-style flex-grow-1 container-p-y">
-          <h4 class="font-weight-bold py-3 mb-4">Account settings</h4>
+          <h4 class="font-weight-bold py-3 mb-4 center">Account Information</h4>
 
           <div class="card overflow-hidden">
             <div class="row no-gutters row-bordered row-border-light">
@@ -347,9 +260,8 @@ const Account = () => {
                 <div class="tab-content">
                   {settingType === "General" && <General />}
                   {settingType === "Change Password" && <ChangePassword />}
-                  {settingType === "Info" && <Info />}
-                  {settingType === "Connections" && <Connections />}
-                  {settingType === "Social Links" && <ConnectSocial />}
+                  {settingType === "Delivery Address" && <AddressInfo />}
+                  {settingType === "My Orders" && <MyOrders />}
                   {settingType === "Notifications" && <Notifications />}
                 </div>
               </div>
