@@ -7,16 +7,13 @@ import LogoDesktop from "../../Assets/logo1.1.jpeg";
 import LogoPhone from "../../Assets/logo1.2.jpeg";
 
 const Navbar = () => {
+  const [isLogin, setIsLogin] = React.useState(true);
   React.useEffect(() => {
     const hamburger = document.querySelector(".hamburger");
     const navLinks = document.querySelector(".nav-links");
-    const links = document.querySelectorAll(".nav-links li");
 
     hamburger.addEventListener("click", () => {
       navLinks.classList.toggle("open");
-      links.forEach((link) => {
-        link.classList.toggle("fade");
-      });
     });
   }, []);
 
@@ -57,7 +54,7 @@ const Navbar = () => {
         </div>
         <div className="nav-menu">
           <img
-            className="arrow-left-img"
+            className="arrow-left-img to-left"
             src={arrowLeft}
             alt=""
             onClick={hamClick}
@@ -72,7 +69,13 @@ const Navbar = () => {
           <a className="menu-link" href="/contact">
             Contact
           </a>
-          <LoginBtn />
+          {isLogin ? (
+            <a className="menu-link" href="/contact">
+              Account
+            </a>
+          ) : (
+            <LoginBtn />
+          )}
           <Search />
         </div>
       </div>
@@ -91,9 +94,12 @@ const Navbar = () => {
             <a href="/category">Category</a>
             <a href="/contact">Contact</a>
           </li>
-          <li className="to-left">
-            <LoginBtn />
-          </li>
+          {isLogin || (
+            <li className="to-left">
+              <LoginBtn />
+            </li>
+          )}
+
           <li className="">
             <Search />
           </li>
