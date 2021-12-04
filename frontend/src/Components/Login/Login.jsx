@@ -53,7 +53,7 @@ const Login = () => {
                         .catch(console.log);
 
                     } else {
-                        console.log("Incorrect email or password")
+                      document.getElementsByClassName("invalid-username-or-password")[0].style.display="block";
                     }
                 })
             }
@@ -78,6 +78,7 @@ const Login = () => {
             />
             <div className="form-content">
               <p className="login-heading">Login</p>
+              <p className="invalid-username-or-password">Invalid username or password.</p>
               <form onSubmit={getUser}>
                 <input
                   type="email"
@@ -114,7 +115,7 @@ const Login = () => {
                 <input
                   type="submit"
                   value="CONTINUE"
-                  className="btn btn-primary"
+                  className="btn btn-primary login-input"
                 />
               </form>
             </div>

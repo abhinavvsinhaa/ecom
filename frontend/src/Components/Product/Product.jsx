@@ -9,7 +9,7 @@ const Product = () => {
     $(".color-choose input").on("click", function () {
       var headphonesColor = $(this).attr("data-image");
       $(".active").fadeOut(100).removeClass("active");
-      $(".left-column img[data-image = " + headphonesColor + "]")
+      $(".left-column img[data-image = " + headphonesColor + "z]")
         .fadeIn(250)
         .addClass("active");
       $(this).addClass("active");

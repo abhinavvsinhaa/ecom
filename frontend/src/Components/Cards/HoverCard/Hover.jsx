@@ -1,18 +1,23 @@
 import React from "react";
+import {Route} from "react-router-dom";
 import "./hover.css";
 
 const Hover = ({ detail }) => {
   const link = [detail.image_link1, detail.image_link2, detail.image_link3];
+  const id = detail.id;
+
   const repeat = (e, rep) => {
     if (rep) e.setAttribute("src", link[1]);
     else e.setAttribute("src", link[0]);
   };
+
   React.useEffect(() => {}, []);
 
   return (
     <div class={`product-card`}>
       <div className="upper-div">
-        <img
+        <Route render = {({history}) => (
+          <img
           className="card-image"
           onMouseOver={(e) => {
             repeat(e.target, true, 0);
@@ -22,7 +27,10 @@ const Hover = ({ detail }) => {
           }}
           src={link[0]}
           alt="shoes"
+          onClick={() => {history.push(`/category/${id}`)}}
         />
+        )}/>
+
         <div className="on-hover">
           <span className="rating">
             <span>

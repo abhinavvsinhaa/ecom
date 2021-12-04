@@ -110,7 +110,7 @@ const SignUp = () => {
                         Privacy policy.
                         </a> 
                         </p>
-                        <input type="submit" value="SIGN UP" className="btn btn-primary"/>
+                        <input type="submit" value="SIGN UP" className="btn btn-primary login-input"/>
                         </form>
                     </div>
                 </div>
