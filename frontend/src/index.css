@@ -5,5 +5,5 @@
   padding: 0;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
-  font-size: roboto !important;
+  font-family: "Roboto", sans-serif;
 }

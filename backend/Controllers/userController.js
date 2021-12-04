@@ -11,6 +11,7 @@ const privateKey = process.env.PRIVATE_KEY;
 
 //dot env configuration
 const dotenv = require("dotenv");
+const { rawListeners } = require('../db-initialize');
 dotenv.config({path: "../config.env"});
 
 
@@ -102,6 +103,28 @@ exports.loginUser = (req, res, next) => {
         }
     })
 }
+
+
+//check if user is logged in or not
+exports.isLoggedIn = (req, res, next) => {
+    const token = req.body.token;
+    console.log(req.body)
+    jwt.verify(token, privateKey, (err, decoded) => {
+        if (err) {
+            res.json({
+                message: "Error in verifying token",
+                status: false,
+                error: err
+            })
+        } else {
+            res.json({
+                message: "Correct token",
+                status: true
+            })
+        }
+    })
+}
+
 
  
 exports.getUser = (req, res, next) => {};

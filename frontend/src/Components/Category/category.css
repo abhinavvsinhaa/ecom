@@ -1,55 +1,80 @@
 .sidenav {
-    height: 100%;
-    width: 250px;
-    position: fixed;
-    z-index: 1;
-    top: 70px;
-    left: 0;
-    background-color: white;
-    overflow-x: hidden;
-    padding: 20px;
-  }
-  .cat-flex{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
-  .cat-flex label{
-    width: 70%;
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 70px;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+.cat-flex{
+  display: flex;
+  align-items: center;
+  /* justify-content: space-around; */
+}
+
+.cat-flex label{
+  width: 70%;
+  padding-left: 10px;
+  font-weight: 300;
+  opacity: 0.8;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.category-main{
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 255px;
+  padding-top: 100px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+@media only screen and (max-width: 750px){
+  .sidenav {
+    display: none;
+    width: 0;
   }
 
-  .sidenav a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-  }
-  
-  .sidenav a:hover {
-    color: #f1f1f1;
-  }
-  
-  .category-main{
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 255px;
-    padding-top: 100px;
+  .category-main {
+    margin-left: 0;
+    justify-content:space-evenly
   }
 
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
-  .filter-label{
-    margin: 10px 0;
-  }
-  .filter-div{
-    margin: 20px 0;
-  }
-  .filter-div p{
-    text-align: center;
-  }
+  /* .category-head-div {
+    background-color: #F6F6F6;
+  } */
+}
+
+.filters-title {
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+.filter-label{
+  margin: 10px 0;
+}
+.filter-div{
+  margin: 20px 0;
+}
 
 .cat-form{
  margin-bottom: 100px;
@@ -61,15 +86,24 @@
 
 .sidenav::-webkit-scrollbar-track
 {
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	background-color: #F5F5F5;
 }
 .sidenav::-webkit-scrollbar
 {
-	width: 6px;
+	width: 3px;
 	background-color: #F5F5F5;
 }
 .sidenav::-webkit-scrollbar-thumb
 {
-	background-color: #000000;
+	background-color: #f1f1f1;
 }
+
+.submit-filter {
+  width: 100%;
+  background-color: #F8EDEB;
+  border: none;
+  padding: 5px;
+  color: #FC6E55;
+  font-size: 15px;
+}
+
