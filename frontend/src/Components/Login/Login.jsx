@@ -3,7 +3,6 @@ import "./Login.css";
 import Logo from "../../Assets/logo.jpeg";
 import Navbar from "../Navbar/Navbar";
 import bcrypt from "bcryptjs";
-import {Route} from "react-router-dom";
 
 //cookies
 import Cookies from 'universal-cookie';
@@ -51,8 +50,6 @@ const Login = () => {
                               maxAge: 2592000,
                               secure: false
                           })
-
-                          setRedirect('/home');
                       })
                       .catch(console.log);
                       
