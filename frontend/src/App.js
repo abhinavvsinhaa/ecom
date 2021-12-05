@@ -9,6 +9,7 @@ import SignUp from "./Components/Signup/Signup";
 import Contact from "./Components/Contact/Contact";
 import Product from "./Components/Product/Product";
 import Account from "./Components/Account/Account";
+import TrackOrder from "./Components/Account/TrackOrder";
 
 function App() {
   return (
@@ -41,6 +42,9 @@ function App() {
           </Route>
           <Route exact path="/account">
             <Account />
+          </Route>
+          <Route exact path="/orders/:id">
+            <TrackOrder />
           </Route>
           <Route exact path="*">
             <Fallback />

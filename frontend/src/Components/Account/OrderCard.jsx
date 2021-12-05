@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./ordercard.css";
 
 const OrderCard = () => {
   return (
-    <div class="container mt-5 d-flex">
+    <div class="container">
       <div class="order-card card p-4 mt-3">
         <div class="first d-flex justify-content-between align-items-center mb-3">
           <div class="info">
@@ -15,7 +16,8 @@ const OrderCard = () => {
         <div class="detail">
           <span class="d-block summery">
             Your order has been dispatched. we are delivering you order.
-          </span>{" "}
+          </span>
+          <Link to="/orders/23">Track Order</Link>
         </div>
       </div>
     </div>

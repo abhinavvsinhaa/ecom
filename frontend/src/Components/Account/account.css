@@ -103,3 +103,6 @@ html:not(.dark-style) .account-settings-links .list-group-item.active {
 .center{
     text-align: center;
 }
+.switcher-label{
+    padding-left: 5px;
+}

@@ -3,7 +3,7 @@
     height: fit-content;
     font-family: poppins;
     cursor: pointer;
-    margin: 5px;
+    margin: 10px;
     border-bottom-right-radius: 5px;
     border-top-left-radius: 5px;
 }
@@ -54,7 +54,7 @@
     height: 0;
     width: 100%;
     position: absolute;
-        bottom: 7px;
+        bottom: 0px;
     margin-bottom: 0px;
     overflow: hidden;
     backdrop-filter: blur(12px) saturate(180%);
@@ -81,7 +81,11 @@
 }
 
 .d-flex-new img {
-    margin-top: -10px;
+    margin-top: -15px;
+}
+
+.cart-pic{
+    width: 25px !important;
 }
 
 @media screen and (max-width: 768px) {

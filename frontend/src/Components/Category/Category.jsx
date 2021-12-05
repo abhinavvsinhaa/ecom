@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../Navbar/Navbar";
 import Hover from "../Cards/HoverCard/Hover";
 import api from "./../../Util/api";
+import $ from "jquery";
 import "./category.css";
 
 const options = { withCredentials: true };
@@ -97,6 +98,11 @@ const Category = () => {
   const [loadingAllData, dataLoaded] = React.useState(false);
 
   React.useEffect(() => {
+    $(".sidnav-btn").on("click", () => {
+      $(".filter-nav").toggleClass("sidenav");
+      $(".filter-nav").toggleClass("sidenav-active");
+    });
+
     async function fetchMyAPI() {
       try {
         let res = await api.get(
@@ -112,23 +118,33 @@ const Category = () => {
     }
     fetchMyAPI();
   }, []);
-  
+
   return (
-    <>
-    <Navbar />
-    <div className="category-head-div">
-      <div class="sidenav">
-        <Price />
+    <React.Fragment>
+      <Navbar />
+      <div className="category-head-div">
+        <div class="sidnav-btn">
+          <p>
+            Apply A Filter
+            <img
+              src="https://img.icons8.com/ios/50/000000/filter--v1.png"
+              width="25px"
+              alt="f"
+            />
+          </p>
+        </div>
+        <div class="filter-nav sidenav">
+          <Price />
+        </div>
+        <div class="category-main">
+          {!loadingAllData && <h1>Loading Data</h1>}
+          {loadingAllData &&
+            product.map((item) => {
+              return <Hover detail={item} key={item.id} />;
+            })}
+        </div>
       </div>
-      <div class="category-main">
-        {!loadingAllData && <h1>Loading Data</h1>}
-        {loadingAllData &&
-          product.map((item) => {
-            return <Hover detail={item} key={item.id} />;
-          })}
-      </div>
-    </div>
-    </>
+    </React.Fragment>
   );
 };
 

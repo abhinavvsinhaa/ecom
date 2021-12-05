@@ -1,0 +1,13 @@
+.order-card-new {
+    border: none;
+    border-radius: 16px;
+    border: 1px solid black;
+}
+.container-scroll{
+    height: 500px;
+    overflow-y: scroll;
+    padding: 1.5rem;
+}
+a[disabled] {
+    pointer-events: none;
+}

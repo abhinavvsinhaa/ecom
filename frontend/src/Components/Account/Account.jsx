@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../Navbar/Navbar";
 import "./account.css";
 import OrderCard from "./OrderCard";
+import $ from "jquery";
 
 const General = () => {
   return (
@@ -13,10 +14,12 @@ const General = () => {
           class="d-block ui-w-80"
         />
         <div class="media-body ml-4">
-          <label class="btn btn-outline-primary form-group">
-            Upload new photo
-            <input type="file" class="account-settings-fileinput" />
-          </label>{" "}
+          <form>
+            <label type="submit" class="btn btn-outline-primary form-group">
+              Upload new photo
+              <input type="file" class="account-settings-fileinput" />
+            </label>
+          </form>
           <div class="text-light small mt-1 form-group">
             Allowed JPG, GIF or PNG. Max size of 800K
           </div>
@@ -37,7 +40,7 @@ const General = () => {
           <input
             type="text"
             class="form-control mb-1"
-            value="armaan@mail.com"
+            defaultValue="armaan@mail.com"
           />
           <div class="alert alert-warning mt-3">
             Your email is not confirmed. Please check your inbox.
@@ -115,7 +118,11 @@ const AddressInfo = () => {
 
 const MyOrders = () => {
   return (
-    <div class="tab-pane fade active show" id="account-social-links">
+    <div class="container-scroll fade active show" id="">
+      <h6 class="mb-4">Your Orders</h6>
+      <OrderCard />
+      <OrderCard />
+      <OrderCard />
       <OrderCard />
     </div>
   );
@@ -124,78 +131,41 @@ const MyOrders = () => {
 const Notifications = () => {
   return (
     <div class="tab-pane fade active show" id="account-notifications">
-      <div class="card-body pb-2">
-        <h6 class="mb-4">Activity</h6>
-
-        <div class="form-group">
-          <label class="switcher">
-            <input type="checkbox" class="switcher-input" checked="" />
-            <span class="switcher-indicator">
-              <span class="switcher-yes"></span>
-              <span class="switcher-no"></span>
-            </span>
-            <span class="switcher-label">
-              Email me when someone comments on my article
-            </span>
-          </label>
-        </div>
-        <div class="form-group">
-          <label class="switcher">
-            <input type="checkbox" class="switcher-input" checked="" />
-            <span class="switcher-indicator">
-              <span class="switcher-yes"></span>
-              <span class="switcher-no"></span>
-            </span>
-            <span class="switcher-label">
-              Email me when someone answers on my forum thread
-            </span>
-          </label>
-        </div>
-        <div class="form-group">
-          <label class="switcher">
-            <input type="checkbox" class="switcher-input" />
-            <span class="switcher-indicator">
-              <span class="switcher-yes"></span>
-              <span class="switcher-no"></span>
-            </span>
-            <span class="switcher-label">Email me when someone follows me</span>
-          </label>
-        </div>
+      <div class="form-group">
+        <h6 class="mb-4">Notification Settings</h6>
       </div>
-      <hr class="border-light m-0" />
-      <div class="card-body pb-2">
-        <h6 class="mb-4">Application</h6>
 
-        <div class="form-group">
-          <label class="switcher">
-            <input type="checkbox" class="switcher-input" checked="" />
-            <span class="switcher-indicator">
-              <span class="switcher-yes"></span>
-              <span class="switcher-no"></span>
-            </span>
-            <span class="switcher-label">News and announcements</span>
-          </label>
-        </div>
-        <div class="form-group">
-          <label class="switcher">
-            <input type="checkbox" class="switcher-input" />
-            <span class="switcher-indicator">
-              <span class="switcher-yes"></span>
-              <span class="switcher-no"></span>
-            </span>
-            <span class="switcher-label">Weekly product updates</span>
-          </label>
-        </div>
-        <div class="form-group">
-          <label class="switcher">
-            <input type="checkbox" class="switcher-input" checked="" />
-            <span class="switcher-indicator">
-              <span class="switcher-yes"></span>
-              <span class="switcher-no"></span>
-            </span>
-            <span class="switcher-label">Weekly blog digest</span>
-          </label>
-        </div>
+      <div class="form-group">
+        <label class="switcher">
+          <input type="checkbox" class="switcher-input" />
+          <span class="switcher-indicator">
+            <span class="switcher-yes"></span>
+            <span class="switcher-no"></span>
+          </span>
+          <span class="switcher-label">General Product notifications</span>
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label class="switcher">
+          <input type="checkbox" class="switcher-input" />
+          <span class="switcher-indicator">
+            <span class="switcher-yes"></span>
+            <span class="switcher-no"></span>
+          </span>
+          <span class="switcher-label">Discounts and offers</span>
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label class="switcher">
+          <input type="checkbox" class="switcher-input" />
+          <span class="switcher-label">Order Detail And Tracking</span>
+          <span class="switcher-indicator">
+            <span class="switcher-yes"></span>
+            <span class="switcher-no"></span>
+          </span>
+        </label>
       </div>
     </div>
   );
