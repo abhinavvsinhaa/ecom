@@ -1,7 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import "./hover.css";
-import buyNow from "../../../Assets/buy.png";
+import cart from "../../../Assets/cart.png";
 
 const Hover = ({ detail }) => {
   const link = [detail.image_link1, detail.image_link2, detail.image_link3];
@@ -57,7 +57,7 @@ const Hover = ({ detail }) => {
             {detail.name.split(" ").slice(0, 2).join(" ")}
           </p>
           <img
-            src="https://img.icons8.com/external-those-icons-lineal-those-icons/48/000000/external-cart-shopping-actions-those-icons-lineal-those-icons-3.png"
+            src={cart}
             className="cart-pic"
             alt="cart"
           />

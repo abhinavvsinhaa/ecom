@@ -135,3 +135,18 @@ ALTER TABLE ecom.`user` MODIFY COLUMN password varchar(200) NOT NULL;
 -- 27 Nov
 ALTER TABLE `ecom`.`cart` 
 CHANGE COLUMN `cartid` `cartid` VARCHAR(255) NOT NULL ;
+-- 05 Dec
+ALTER TABLE ecom.cart ADD `size` DECIMAL(2,1) NOT NULL;
+
+CREATE TABLE ecom.cart (
+	sno INT auto_increment NOT null primary key,
+	cartid VARCHAR(255) NOT NULL,
+	productid INT NOT NULL,
+	quantity INT NOT NULL,
+	`size` DECIMAL(2,1) NOT NULL
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_0900_ai_ci;
+
+ALTER TABLE ecom.cart MODIFY COLUMN size varchar(5) NOT NULL;

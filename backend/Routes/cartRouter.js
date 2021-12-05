@@ -25,4 +25,7 @@ router.use('/', getToken)
 router.route('/')
 .get(cartController.getMyCart);
 
+router.route('/')
+.post(cartController.addToCart)
+
 module.exports = router;

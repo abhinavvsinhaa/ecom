@@ -1,11 +1,47 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./product.css";
 import Navbar from "./../Navbar/Navbar";
 import Footer from "./../Footer/Footer";
 import $ from "jquery";
+import { useLocation } from "react-router-dom";
+
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 
 const Product = () => {
-  React.useEffect(() => {
+  let location = useLocation();
+  let productId = location.pathname.split('/')[2];
+
+  const [id, setId] = useState(null);
+  const [name, setName] = useState(null);
+  const [description, setDescription] = useState(null);
+  const [brand, setBrand] = useState(null);
+  const [images, setImages] = useState([]);
+  const [inStock, setInStock] = useState(false);
+  const [rating, setRating] = useState(null);
+  const [price, setPrice] = useState(null);  
+  const [size, setSize] = useState(null);
+
+  const [selectedSize, setSelectedSize] = useState(null);
+
+  const [addToCartButtonMessage, setAddToCartButtonMessage] = useState("Add to cart")
+
+  async function GetProduct() {
+    let res = await fetch(`http://localhost:8080/api/v1/products/productId/${productId}`)
+    let result = await res.json();
+    setImages([result.image_link1, result.image_link2, result.image_link3]);
+    setId(result.id);
+    setName(result.name);
+    setDescription(result.short_desc);
+    setBrand(result.brand);
+    result.quantity && setInStock(true)
+    setRating(result.rating);
+    setPrice(result.price);
+    setSize(result.size);
+  }
+
+  useEffect(() => {
+    GetProduct();
     $(".color-choose input").on("click", function () {
       var headphonesColor = $(this).attr("data-image");
       $(".active").fadeOut(300).removeClass("active");
@@ -15,12 +51,35 @@ const Product = () => {
       $(this).addClass("active");
     });
   }, []);
-  const img_1 =
-    "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/f94ed87f-963e-4bfb-b88d-4f476a0e79df/wildhorse-7-trail-running-shoes-XdK82N.png";
-  const img_2 =
-    "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/744e4eff-1a7e-427e-9a26-97743a821f13/wildhorse-7-trail-running-shoes-XdK82N.png";
-  const img_3 =
-    "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/4891c4a3-1f91-4748-917d-722ac3e5e454/wildhorse-7-trail-running-shoes-XdK82N.png";
+  
+
+  const onSizeSelect = (e) => {
+    setSelectedSize(e.target.value);
+  } 
+
+  const handleAddToCart = () => {
+    async function fetchAPI() {
+      let response = await fetch("http://localhost:8080/api/v1/cart", {
+        method: "POST",
+        headers: {
+          "Content-Type":"application/json",
+          "Authorization": `Bearer ${cookies.getAll().JWT}`
+        },
+        body: JSON.stringify({
+          productId: id,
+          size: selectedSize
+        })
+      })
+
+      let result = await response.json();
+      if (result.message === "Product added into cart") {
+        document.getElementsByClassName("cart-btn")[0].style.backgroundColor = "#000";
+        setAddToCartButtonMessage("Added to Cart")
+      }
+    }
+
+    fetchAPI();
+  }
 
   return (
     <React.Fragment>
@@ -28,26 +87,19 @@ const Product = () => {
       <div>
         <main class="cat-container">
           <div class="left-column">
-            <img data-image="black" src={img_1} alt="" />
-            <img data-image="blue" src={img_2} alt="" />
-            <img data-image="red" class="active" src={img_3} alt="" />
+            <img data-image="black" src={images[0]} alt="" />
+            <img data-image="blue" src={images[1]} alt="" />
+            <img data-image="red" class="active" src={images[2]} alt="" />
           </div>
           <div class="right-column">
             <div class="product-description">
-              <span>Nike</span>
-              <h1>Nike Wildhorse 7</h1>
-              <p>
-                Take on those tough and extreme trail runs with the rugged build
-                of the Nike Wildhorse 7.Confidently take on rocky terrain with
-                high-abrasion rubber on the outsole that adds durable
-                traction.The upper delivers durable ventilation with support
-                where you need it.Foam midsole cushioning gives a neutral feel
-                and provides responsiveness on every mile.e
-              </p>
+              <span>{brand}</span>
+              <h1>{name}</h1>
+              <p>{description}</p>
             </div>
             <div class="product-configuration">
               <div class="product-color">
-                <span>Color</span>
+                {/* <span>Images</span> */}
                 <div class="color-choose">
                   <div>
                     <div>
@@ -63,7 +115,7 @@ const Product = () => {
                         <img
                           data-image="black"
                           className="label-img"
-                          src={img_1}
+                          src={images[0]}
                           alt=""
                         />
                       </label>
@@ -78,7 +130,7 @@ const Product = () => {
                     <label for="black">
                       <img
                         data-image="blue"
-                        src={img_3}
+                        src={images[2]}
                         className="label-img"
                         alt=""
                       />
@@ -95,7 +147,7 @@ const Product = () => {
                     <label for="blue">
                       <img
                         data-image="blue"
-                        src={img_2}
+                        src={images[1]}
                         className="label-img"
                         alt=""
                       />
@@ -106,19 +158,20 @@ const Product = () => {
               <div class="cable-config">
                 <span>Size Available</span>
                 <div class="cable-choose">
-                  <button>5</button>
-                  <button>8</button>
-                  <button>9</button>
-                  <button>12</button>
+                  {
+                    size && size.split(',').map(s => {
+                      return <button key={s} onClick={onSizeSelect} value={s}>{s}</button>
+                    })
+                  }
                 </div>
                 <a href="#">Know more about our terms and conditions</a>
               </div>
             </div>
             <div class="product-price">
-              <span>₹14008</span>
-              <a href="#" class="cart-btn">
-                Add to cart
-              </a>
+              <span>{price}</span>
+              <button class="cart-btn" onClick={handleAddToCart}>
+                {addToCartButtonMessage}
+              </button>
             </div>
           </div>
         </main>
