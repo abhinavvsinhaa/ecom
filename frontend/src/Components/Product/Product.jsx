@@ -72,13 +72,22 @@ const Product = () => {
       })
 
       let result = await response.json();
-      if (result.message === "Product added into cart") {
+      console.log(result);
+      if (result.message === "Product added in cart") {
         document.getElementsByClassName("cart-btn")[0].style.backgroundColor = "#000";
         setAddToCartButtonMessage("Added to Cart")
       }
     }
 
-    fetchAPI();
+    if (!cookies.getAll().JWT) {
+      setAddToCartButtonMessage("Login to add to cart.")
+      document.getElementsByClassName('cart-btn')[0].style.backgroundColor = "red";
+      document.getElementsByClassName('cart-btn')[0].style.border = "1px solid red";
+    } else if (!selectedSize) {
+      alert("Please select size!")
+    } else {
+      fetchAPI();
+    }
   }
 
   return (

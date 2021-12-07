@@ -1,7 +1,10 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import "./cart.css";
+
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 
 function Header({ itemCount }) {
   return (
@@ -159,15 +162,77 @@ const TAX = 5;
 function Page() {
   const CLONE_PRODUCTS = JSON.parse(JSON.stringify(PRODUCTS));
   const [products, setProducts] = React.useState(CLONE_PRODUCTS);
+  const [productsInCart, setProductsInCart] = useState(null);
+  const [productsInCartDetails, setProductsInCartDetails] = useState([]);  
   const [promoCode, setPromoCode] = React.useState("");
   const [discountPercent, setDiscountPercent] = React.useState(0);
+
+  //Fetch cart products and their quantity, if the user is authorized (having a token)
+  async function fetchCart() {
+    const response = await fetch("http://localhost:8080/api/v1/cart", {
+      method: "GET",
+      headers: {
+        "Content-Type" : "application/json",
+        "Authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiYWJoaW5hdnNpbmhhMjIzQGdtYWlsLmNvbSIsImlhdCI6MTYzODc2MzYxM30sImlhdCI6MTYzODc2MzYxMywiZXhwIjoxNjQxMzU1NjEzfQ.EQeRihb97AvIqvWH59LHTDnyu1zZn48mWlkNxuIdP0s"
+      }
+    })
+    const result = await response.json();
+    setProductsInCart(result.products);
+  }
+
+  //Fetch product detail for each product in the cart
+  async function fetchProductDetailsFromCart(productId, quantityInCart) {
+    const response = await fetch(`http://localhost:8080/api/v1/products/productId/${productId}`, {
+        method: "GET",
+        headers: {
+          "Content-Type" : "application/json"
+        }
+      })
+
+    const result = await response.json();
+    let product = {
+      name: result.name,
+      price: result.price,
+      available: (result.quantity - quantityInCart) ? true : false,
+      quantity: quantityInCart,
+      image: result.image_link1
+    }
+    return product;
+  }
+
+  function storeDetails () {
+    productsInCart && productsInCart.map(async (p) => {
+      let product = await fetchProductDetailsFromCart(p.productid, p.quantity);
+      console.log(product);
+      setProductsInCartDetails([...productsInCartDetails, product]);
+    })
+  }
+
+  async function calls() {
+    await fetchCart();
+    storeDetails();
+  }
+  useEffect(() => {
+    calls();
+  }, [])
+
+  // useEffect(() => {
+  //   console.log("Product In cart details" ,productsInCartDetails)
+  // }, [productsInCartDetails])
+
+  // useEffect(() => {
+  //   console.log("Product In cart" ,productsInCart)
+  // }, [productsInCart])
+
 
   const itemCount = products.reduce((quantity, product) => {
     return quantity + +product.quantity;
   }, 0);
+
   const subTotal = products.reduce((total, product) => {
     return total + product.price * +product.quantity;
   }, 0);
+
   const discount = (subTotal * discountPercent) / 100;
 
   const onChangeProductQuantity = (index, event) => {
