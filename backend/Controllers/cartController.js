@@ -144,22 +144,74 @@ const addToCart = (req, res, next) => {
       let cartId = token.customer.cartId;
       let productId = token.request.body.productId;
       let size = token.request.body.size;
-      let values = [cartId, productId, 1, size];
 
-      let query =
-        'INSERT INTO ecom.cart(cartid, productid, quantity, size) VALUES(?)';
-      db.query(query, [values], (err, db_res, fields) => {
-        if (err) {
-          res.json({
-            message: 'Error in adding product',
-            error: err
+      function searchProductInCart(callback) {
+        let searchQuery =
+          'SELECT sno, quantity FROM ecom.cart WHERE cartid = ? AND productid = ? AND size = ?';
+
+        db.query(
+          searchQuery,
+          [cartId, productId, size],
+          (err, productInCart, fields) => {
+            if (err) {
+              res.json({
+                message: 'Error in searching product',
+                error: err
+              });
+              res.end();
+            } else if (productInCart) {
+              if (productInCart.length > 0) {
+                callback(productInCart[0]);
+              } else {
+                callback(false);
+              }
+            }
+          }
+        );
+      }
+
+      searchProductInCart((product) => {
+        if (product) {
+          let query = 'UPDATE ecom.cart SET quantity=?+1 WHERE sno=?';
+
+          db.query(
+            query,
+            [product.quantity, product.id],
+            (err, update, fields) => {
+              if (err) {
+                res.json({
+                  message: 'Error in updating product quantity',
+                  error: err
+                });
+                res.end();
+              } else if (update) {
+                res.json({
+                  message: 'Product added in cart',
+                  type: 'updated exisiting quantity'
+                });
+                res.end();
+              }
+            }
+          );
+        } else if (product === false) {
+          let values = [cartId, productId, 1, size];
+          let query =
+            'INSERT INTO ecom.cart(cartid, productid, quantity, size) VALUES(?)';
+          db.query(query, [values], (err, db_res, fields) => {
+            if (err) {
+              res.json({
+                message: 'Error in adding product',
+                error: err
+              });
+              res.end();
+            } else if (db_res) {
+              res.json({
+                message: 'Product added in cart',
+                type: 'inserted new'
+              });
+              res.end();
+            }
           });
-          res.end();
-        } else if (db_res) {
-          res.json({
-            message: 'Product added into cart'
-          });
-          res.end();
         }
       });
     }
