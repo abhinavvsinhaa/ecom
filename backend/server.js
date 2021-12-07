@@ -4,6 +4,7 @@ const server = app.listen(process.env.PORT, () => {
   console.log(`Api running on ${process.env.PORT}`);
 });
 
+/* 
 process.on('unhandledRejection', (err) => {
   console.log(err.name, err.message);
   console.log('Unhandled error occluded, shutting the server down');
@@ -21,3 +22,4 @@ process.on('uncaughtException', (err) => {
     process.exit(1);
   });
 });
+ */

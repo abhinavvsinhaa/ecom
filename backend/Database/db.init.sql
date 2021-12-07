@@ -37,16 +37,23 @@ CREATE TABLE cart (
 );
 -- 2 Nov 21
 -- Added new column size to store available sizes
-ALTER TABLE ecom.product
-ADD `size` varchar(100) NULL;
+ALTER TABLE
+  ecom.product
+ADD
+  `size` varchar(100) NULL;
 -- Modify short_desc column to 1000 char
-ALTER TABLE ecom.product
-MODIFY COLUMN short_desc varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL;
+ALTER TABLE
+  ecom.product
+MODIFY
+  COLUMN short_desc varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL;
 -- Change rating column data type from int to float
-ALTER TABLE ecom.product
-MODIFY COLUMN rating FLOAT NULL;
+ALTER TABLE
+  ecom.product
+MODIFY
+  COLUMN rating FLOAT NULL;
 -- Inserting into product table
-INSERT INTO ecom.product (
+INSERT INTO
+  ecom.product (
     name,
     short_desc,
     brand,
@@ -59,7 +66,8 @@ INSERT INTO ecom.product (
     rating,
     size
   )
-VALUES (
+VALUES
+  (
     'Nike Wildhorse 7',
     'Take on those tough and extreme trail runs with the rugged build of the Nike Wildhorse 7.Confidently take on rocky terrain with high-abrasion rubber on the outsole that adds durable traction.The upper delivers durable ventilation with support where you need it.Foam midsole cushioning gives a neutral feel and provides responsiveness on every mile.',
     'Nike',
@@ -125,28 +133,40 @@ VALUES (
     '3, 4, 5, 6, 7.5, 8.5, 9'
   );
 -- 9 Nov
--- Changing data type of rating column from float to decimal as float doesn't supports equality checking
-ALTER TABLE ecom.product
-MODIFY COLUMN rating DECIMAL(2, 1) NULL;
+  -- Changing data type of rating column from float to decimal as float doesn't supports equality checking
+ALTER TABLE
+  ecom.product
+MODIFY
+  COLUMN rating DECIMAL(2, 1) NULL;
 -- 17 Nov
-ALTER TABLE ecom.`user` MODIFY COLUMN cart_id varchar(200) NOT NULL;
-ALTER TABLE ecom.`user` MODIFY COLUMN wishlist_id varchar(200) NOT NULL;
-ALTER TABLE ecom.`user` MODIFY COLUMN password varchar(200) NOT NULL;
+ALTER TABLE
+  ecom.`user`
+MODIFY
+  COLUMN cart_id varchar(200) NOT NULL;
+ALTER TABLE
+  ecom.`user`
+MODIFY
+  COLUMN wishlist_id varchar(200) NOT NULL;
+ALTER TABLE
+  ecom.`user`
+MODIFY
+  COLUMN password varchar(200) NOT NULL;
 -- 27 Nov
-ALTER TABLE `ecom`.`cart` 
-CHANGE COLUMN `cartid` `cartid` VARCHAR(255) NOT NULL ;
+ALTER TABLE
+  `ecom`.`cart` CHANGE COLUMN `cartid` `cartid` VARCHAR(255) NOT NULL;
 -- 05 Dec
-ALTER TABLE ecom.cart ADD `size` DECIMAL(2,1) NOT NULL;
-
+ALTER TABLE
+  ecom.cart
+ADD
+  `size` DECIMAL(2, 1) NOT NULL;
 CREATE TABLE ecom.cart (
-	sno INT auto_increment NOT null primary key,
-	cartid VARCHAR(255) NOT NULL,
-	productid INT NOT NULL,
-	quantity INT NOT NULL,
-	`size` DECIMAL(2,1) NOT NULL
-)
-ENGINE=InnoDB
-DEFAULT CHARSET=utf8mb4
-COLLATE=utf8mb4_0900_ai_ci;
-
-ALTER TABLE ecom.cart MODIFY COLUMN size varchar(5) NOT NULL;
+    sno INT auto_increment NOT null primary key,
+    cartid VARCHAR(255) NOT NULL,
+    productid INT NOT NULL,
+    quantity INT NOT NULL,
+    `size` DECIMAL(2, 1) NOT NULL
+  ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+ALTER TABLE
+  ecom.cart
+MODIFY
+  COLUMN size varchar(5) NOT NULL;
