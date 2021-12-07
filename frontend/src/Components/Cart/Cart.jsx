@@ -201,6 +201,7 @@ function Page() {
   }
 
   function storeDetails () {
+    fetchCart();
     productsInCart && productsInCart.map(async (p) => {
       let product = await fetchProductDetailsFromCart(p.productid, p.quantity);
       console.log(product);
@@ -208,12 +209,8 @@ function Page() {
     })
   }
 
-  async function calls() {
-    await fetchCart();
-    storeDetails();
-  }
   useEffect(() => {
-    calls();
+    storeDetails();
   }, [])
 
   // useEffect(() => {
