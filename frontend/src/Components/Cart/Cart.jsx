@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import "./cart.css";
@@ -160,58 +160,55 @@ const PROMOTIONS = [
 const TAX = 5;
 
 function Page() {
-  const CLONE_PRODUCTS = JSON.parse(JSON.stringify(PRODUCTS));
-  const [products, setProducts] = React.useState(CLONE_PRODUCTS);
-  const [productsInCart, setProductsInCart] = useState(null);
-  const [productsInCartDetails, setProductsInCartDetails] = useState([]);  
+  const [products, setProducts] = React.useState(PRODUCTS);
   const [promoCode, setPromoCode] = React.useState("");
   const [discountPercent, setDiscountPercent] = React.useState(0);
 
-  //Fetch cart products and their quantity, if the user is authorized (having a token)
-  async function fetchCart() {
-    const response = await fetch("http://localhost:8080/api/v1/cart", {
-      method: "GET",
-      headers: {
-        "Content-Type" : "application/json",
-        "Authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiYWJoaW5hdnNpbmhhMjIzQGdtYWlsLmNvbSIsImlhdCI6MTYzODc2MzYxM30sImlhdCI6MTYzODc2MzYxMywiZXhwIjoxNjQxMzU1NjEzfQ.EQeRihb97AvIqvWH59LHTDnyu1zZn48mWlkNxuIdP0s"
-      }
-    })
-    const result = await response.json();
-    setProductsInCart(result.products);
-  }
-
   //Fetch product detail for each product in the cart
   async function fetchProductDetailsFromCart(productId, quantityInCart) {
-    const response = await fetch(`http://localhost:8080/api/v1/products/productId/${productId}`, {
+    const response = await fetch(
+      `http://localhost:8080/api/v1/products/productId/${productId}`,
+      {
         method: "GET",
         headers: {
-          "Content-Type" : "application/json"
-        }
-      })
-
+          "Content-Type": "application/json",
+        },
+      }
+    );
     const result = await response.json();
     let product = {
+      image: result.image_link1,
       name: result.name,
+      description: result.short_desc.slice(0, 200) + "...",
       price: result.price,
-      available: (result.quantity - quantityInCart) ? true : false,
       quantity: quantityInCart,
-      image: result.image_link1
-    }
+    };
     return product;
   }
 
-  function storeDetails () {
-    fetchCart();
-    productsInCart && productsInCart.map(async (p) => {
-      let product = await fetchProductDetailsFromCart(p.productid, p.quantity);
-      console.log(product);
-      setProductsInCartDetails([...productsInCartDetails, product]);
-    })
-  }
-
   useEffect(() => {
-    storeDetails();
-  }, [])
+    async function fetchApi() {
+      const response = await fetch("http://localhost:8080/api/v1/cart", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiYWJoaW5hdkBnbWFpbC5jb20iLCJpYXQiOjE2Mzg3MjI5MzF9LCJpYXQiOjE2Mzg3MjI5MzEsImV4cCI6MTY0MTMxNDkzMX0.M_3341v5cQ5lR3ajzJGdHI5F3c_oONkGmYXDLXziHUk",
+        },
+      });
+      const result = await response.json();
+      let productsInCart = [];
+      result.products.forEach(async (e) => {
+        productsInCart.push(
+          await fetchProductDetailsFromCart(e.productid, e.quantity)
+        );
+      });
+      setTimeout(function () {
+        setProducts(productsInCart);
+      }, 500);
+    }
+    fetchApi();
+  }, []);
 
   // useEffect(() => {
   //   console.log("Product In cart details" ,productsInCartDetails)
@@ -220,7 +217,6 @@ function Page() {
   // useEffect(() => {
   //   console.log("Product In cart" ,productsInCart)
   // }, [productsInCart])
-
 
   const itemCount = products.reduce((quantity, product) => {
     return quantity + +product.quantity;
@@ -307,7 +303,7 @@ function Page() {
 function formatCurrency(value) {
   return Number(value).toLocaleString("en-US", {
     style: "currency",
-    currency: "USD",
+    currency: "INR",
   });
 }
 

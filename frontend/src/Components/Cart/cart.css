@@ -282,9 +282,6 @@
   
   /* --- SMALL SCREEN --- */
   @media all and (max-width: 599px) {
-    .thumbnail .cart-pro-img {
-      display: none;
-    }
     
     .quantity > .quantity {
       width: 40px;
@@ -314,7 +311,7 @@
     }
   
     .thumbnail {
-      width: 35%;
+      width: 20%;
     }
   
     .detail {
