@@ -45,21 +45,12 @@ function ProductList({ products, onChangeProductQuantity, onRemoveProduct }) {
                     </a>
                   </div>
                   <div className="description">{product.description}</div>
+                  <button id="quantity">{product.quantity}</button>
                   <div className="price">{formatCurrency(product.price)}</div>
                 </div>
               </div>
 
-              <div className="col right">
-                <div className="quantity">
-                  <input
-                    type="text"
-                    className="quantity"
-                    step="1"
-                    value={product.quantity}
-                    onChange={(event) => onChangeProductQuantity(index, event)}
-                  />
-                </div>
-
+              {/* <div className="col right">
                 <div className="remove">
                   <svg
                     onClick={() => onRemoveProduct(index)}
@@ -73,7 +64,7 @@ function ProductList({ products, onChangeProductQuantity, onRemoveProduct }) {
                     <polygon points="38.936,23.561 36.814,21.439 30.562,27.691 24.311,21.439 22.189,23.561 28.441,29.812 22.189,36.064 24.311,38.186 30.562,31.934 36.814,38.186 38.936,36.064 32.684,29.812" />
                   </svg>
                 </div>
-              </div>
+              </div> */}
             </li>
           );
         })}
@@ -93,11 +84,11 @@ function Summary({
 
   return (
     <section className="cart-footer">
-      <div className="promotion">
+      {/* <div className="promotion">
         <label htmlFor="promo-code">Have A Promo Code?</label>
         <input className="quantity" type="text" onChange={onEnterPromoCode} />
         <button className="cart-btn" type="button" onClick={checkPromoCode} />
-      </div>
+      </div> */}
 
       <div className="summary">
         <ul>
@@ -119,9 +110,9 @@ function Summary({
       </div>
 
       <div className="checkout">
-        <button className="cart-btn" type="button">
-          Check Out
-        </button>
+          <button className="cart-btn" type="button">
+            Check Out
+          </button>
       </div>
     </section>
   );
@@ -179,7 +170,7 @@ function Page() {
     let product = {
       image: result.image_link1,
       name: result.name,
-      description: result.short_desc.slice(0, 200) + "...",
+      description: result.short_desc.slice(0, 100) + "...",
       price: result.price,
       quantity: quantityInCart,
     };
@@ -193,12 +184,12 @@ function Page() {
         headers: {
           "Content-Type": "application/json",
           Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiYWJoaW5hdkBnbWFpbC5jb20iLCJpYXQiOjE2Mzg3MjI5MzF9LCJpYXQiOjE2Mzg3MjI5MzEsImV4cCI6MTY0MTMxNDkzMX0.M_3341v5cQ5lR3ajzJGdHI5F3c_oONkGmYXDLXziHUk",
+            `Bearer ${cookies.getAll().JWT}`,
         },
       });
       const result = await response.json();
       let productsInCart = [];
-      result.products.forEach(async (e) => {
+      await result.products.forEach(async (e) => {
         productsInCart.push(
           await fetchProductDetailsFromCart(e.productid, e.quantity)
         );
@@ -208,15 +199,8 @@ function Page() {
       }, 500);
     }
     fetchApi();
+    console.log(products)
   }, []);
-
-  // useEffect(() => {
-  //   console.log("Product In cart details" ,productsInCartDetails)
-  // }, [productsInCartDetails])
-
-  // useEffect(() => {
-  //   console.log("Product In cart" ,productsInCart)
-  // }, [productsInCart])
 
   const itemCount = products.reduce((quantity, product) => {
     return quantity + +product.quantity;
